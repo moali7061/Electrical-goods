@@ -65,7 +65,10 @@ function Home_page() {
         <div className='section_3'>
             <h1 className='first_part'>About US</h1>
             <div className='contact_us_tabel'>
-                
+                <h1>How to reach me?</h1>
+                <h3>Personal email?</h3><p><a href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCJqXxbvQwXLSXBnGdKFmrNDdbWVVdStTprnCBRTLGCxpczJcPswcpQmsfxMKzJJgLJHCPmL'>moh.ali6066@gmail.com</a></p>
+                <h3>University email</h3><p><a href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCJqXxbvQwXLSXBnGdKFmrNDdbWVVdStTprnCBRTLGCxpczJcPswcpQmsfxMKzJJgLJHCPmL'>mohamed.alysoliman@student.guc.edu.eg</a></p>
+                <h3>Linked in Account</h3><p><a href='https://www.linkedin.com/in/mohamed-aly-6b7a32200/'>Linked In</a></p>
             </div>
 
         </div>

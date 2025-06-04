@@ -84,14 +84,7 @@ html, body, #root {
   height: 400px;
 }
 
-.section_3{
-  display: flex;
-  background-color: white;
-  height: 92vh;
-  align-items: center;
-  justify-content: center;
-  width: 100dvw;
-}
+
 
 .the_description{
   font-style: italic;
@@ -119,17 +112,33 @@ html, body, #root {
 
 }
 
-.first_part{
+.section_3{
   display: flex;
-  width: 200px;
-  height: 10%;
-  justify-content: flex-start;
-  align-items: flex-start;
+  background-color: white;
+  height: 92vh;
+  align-items: center;
+  justify-content: center;
+  width: 100dvw;
+  position: relative;
+}
+
+.first_part{
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: green;
 }
 
 
+
 .contact_us_tabel{
-  border: solid 1px black;
-  width: 200px;
-  height: 200px;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 400px;
+  height: 300px;
+  border: solid 2px black;
+}
+a{
+  color: green !important;
 }
