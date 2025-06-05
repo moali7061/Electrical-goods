@@ -161,3 +161,22 @@ a{
   width: 800px;
   height: 400px;
 }
+
+
+.login_page{
+  display: flex;
+  width: 100dvw;
+  height: 100dvh;
+  flex-direction: row;
+}
+.login_part1{
+  width: 50dvw;
+  height: 100dvh;
+  background-color: rgb(244, 224, 211);
+}
+.login_part2{
+  width: 50dvw;
+  height: 100dvh;
+  background-image: url('./assets/better_furniture.png');
+  background-repeat: no-repeat;
+}

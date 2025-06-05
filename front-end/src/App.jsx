@@ -4,6 +4,7 @@ import List from './List';
 import Home_page from './Home_page';
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './Login'
 
 
 function App(props) {
@@ -14,7 +15,8 @@ function App(props) {
   return (
       <Router>
       <Routes>
-        <Route path="/" element={<Home_page />} />
+        <Route path='/login' element= {<Login/>}  />
+        <Route path="/home" element={<Home_page />} />
         <Route path="/listing" element={<List to_be_mapped={products}/>} />
       </Routes>
   </Router>
