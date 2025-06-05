@@ -114,8 +114,9 @@ html, body, #root {
 
 .section_3{
   display: flex;
+  flex-direction: row;
   background-color: white;
-  height: 92vh;
+  height: 60vh;
   align-items: center;
   justify-content: center;
   width: 100dvw;
@@ -138,7 +139,25 @@ html, body, #root {
   width: 400px;
   height: 300px;
   border: solid 2px black;
+  border-radius: 5%;
 }
+
+.second_part{
+  position: absolute;
+  width: 250px;
+  top: 0;
+  left: 460px;
+}
+
+
 a{
   color: green !important;
+}
+
+.better_image{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 800px;
+  height: 400px;
 }
