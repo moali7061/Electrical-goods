@@ -8,7 +8,7 @@ function Card(props){
 
     return(
         <div className = "new_card">
-            <img className="card_image" src ={`./${props.title}.png`} alt = ""/>
+            <img className="card_image" src ='/elsewedy.png' alt = ""/>
             <h2 className="card_title">{props.title}</h2>
             <h5 className="card_description">{props.description}</h5>
             <h6 className="price">price: {props.price} LE</h6>
