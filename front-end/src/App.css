@@ -64,6 +64,7 @@
   display: flex;
   background-color: black;
   height: 93vh;
+  width: 1521px;
   align-items: center;
   justify-content: center;
 }
@@ -119,7 +120,7 @@ html, body, #root {
   height: 60vh;
   align-items: center;
   justify-content: center;
-  width: 100dvw;
+  width: 1521px;
   position: relative;
 }
 
