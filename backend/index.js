@@ -123,6 +123,22 @@ app.get("/store_sign_in", (req, res)=>{
 });
 
 
+app.get("/listing",async(req, res)=>{
+    try{
+        const products = await db.query("select * from product");
+        if(products.rows.length >0)
+        {
+            console.log(products.rows);
+        }
+        else
+        {
+            res.status(200).json({message: "no products in the website yet"})
+        }
+    }catch{
+        res.status(500).json({message: "can not get products now"});
+    }
+});
+
 
 
 app.listen(port, ()=>{
