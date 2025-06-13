@@ -1,6 +1,8 @@
 import express, { urlencoded } from 'express';
 import * as pg from 'pg';
 import bcrypt from 'bcrypt';
+import cors from 'cors';
+
 
 const app = express();
 const port = 3000;
@@ -8,6 +10,7 @@ const saltRounds = 10;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(cors());
 
 const db = new pg.Client({
     user: 'postgres',
@@ -129,6 +132,7 @@ app.get("/listing",async(req, res)=>{
         if(products.rows.length >0)
         {
             console.log(products.rows);
+            res.json({all_products: products.rows});
         }
         else
         {
