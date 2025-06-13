@@ -180,3 +180,13 @@ a{
   background-image: url('./assets/better_furniture.png');
   background-repeat: no-repeat;
 }
+
+.inputing_fields{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  gap: 5px;
+
+}

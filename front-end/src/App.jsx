@@ -10,7 +10,10 @@ import Login from './Login'
 function App(props) {
 
    
-  const products = [{title: "elsewedy", description: "cable 30 x 30 you must buy as it is very important and can work in many things", count: 10, price: 120}];
+  const products = [
+    {title: "elsewedy", description: "cable 30 x 30 you must buy as it is very important and can work in many things", count: 10, price: 120},
+    {title: "elsewedy", description: "cable 30 x 30 you must buy as it is very important and can work in many things", count: 10, price: 120}
+  ];
 
   return (
       <Router>
@@ -18,6 +21,7 @@ function App(props) {
         <Route path='/login' element= {<Login/>}  />
         <Route path="/home" element={<Home_page />} />
         <Route path="/listing" element={<List to_be_mapped={products}/>} />
+
       </Routes>
   </Router>
   )
