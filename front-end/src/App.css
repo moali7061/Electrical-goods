@@ -191,3 +191,8 @@ a{
   gap: 5px;
 
 }
+
+.noproducs{
+  display: flex;
+  width: 1000px; 
+}
