@@ -11,6 +11,7 @@ function App(props) {
 
    const [products, setProducts] = useState([]);
 
+
   // const products = [
   //   {title: "elsewedy", description: "cable 30 x 30 you must buy as it is very important and can work in many things", count: 10, price: 120},
   //   {title: "elsewedy", description: "cable 30 x 30 you must buy as it is very important and can work in many things", count: 10, price: 120}
@@ -29,12 +30,20 @@ function App(props) {
       .catch((err) => console.error("Error fetching products:", err));
   }, []);
 
+  
   return (
       <Router>
       <Routes>
         <Route path='/login' element= {<Login/>}  />
         <Route path="/home" element={<Home_page />} />
-        <Route path="/listing" element={<List to_be_mapped={products}/>} />
+        <Route path="/listing" element={<List sentence='no products for home available' to_be_mapped={products}/>} />
+        
+        <Route path="/chairs" element={<List sentence='no chairs available' to_be_mapped={products}/>} />
+        <Route path="/tables" element={<List sentence='no tables available' to_be_mapped={products}/>} />
+        <Route path="/Vases" element={<List sentence='no Vases available' to_be_mapped={products}/>} />
+        <Route path="/mirrors" element={<List sentence='no mirrors available' to_be_mapped={products}/>} />
+        <Route path="/beds" element={<List sentence='no beds available' to_be_mapped={products}/>} />
+        
 
       </Routes>
   </Router>
