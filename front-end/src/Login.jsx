@@ -5,9 +5,28 @@ import { useNavigate } from 'react-router-dom';
 function Register_login(){
 
 const navigate = useNavigate();
-  const go_to_products = ()=>{
-    
-    navigate('/listing');
+  const go_to_products = async()=>{
+    try{
+      const response = await fetch('http://localhost:3000/log_in_user', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({email, password}),
+      })
+      const text = await response.text();
+       if (text === 'correct') {
+      navigate('/listing'); 
+    } else if (text === 'not_correct') {
+      alert('Incorrect password. Try again.');
+    } else if (text === 'user_not_found') {
+      alert('User not found.');
+    } else {
+      alert('Unexpected response: ' + text);
+    }
+    }catch(err){
+      alert('something went wrong');
+    }
   }
 
   const [email, setEmail] = useState("");
