@@ -113,7 +113,7 @@ app.get("/store_sign_in", (req, res)=>{
     
     const store_id = req.body.store_id;
     try{
-        const check = db.query(`select * from store where store_id = ${store_id}`);
+        const check = db.query(`select * from store where store_id = '${store_id}'`);
         if (check.rows.length > 0 ){
             //redirect to the page where the shop owner see things that he can do
         }
@@ -145,8 +145,34 @@ app.get("/getproducts",async(req, res)=>{
 });
 
 
+app.post("/log_in_user",async(req, res)=>{
+    try{
+        const {email, password} = req.body;
+
+        const found_user =await db.query(`select * from students where email = '${email}'`);
+        console.log(found_user.rows[0]);
+        if(found_user.rows[0]){
+            const emai_in_db = found_user.rows[0].email;
+            const password_in_db = found_user.rows[0].password;
+            bcrypt.compare(password, password_in_db, function(err, result) {
+                console.log(result);
+                if(result){
+                    res.send("correct");
+                }
+                else{
+                    res.send("not_correct")
+                }
+            });
+        }else{
+            res.send("user_not_found");
+        }
 
 
+
+    }catch{
+        res.status(500).json({message: "there is error in this method"});
+    }
+});
 
 
 app.listen(port, ()=>{
