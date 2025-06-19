@@ -21,6 +21,7 @@ const db = new pg.Client({
 });
 
 db.connect().then(console.log("connected to the database"));
+
 app.get("/",async(req, res)=>{
     try{
         console.log("please choose to sign up register or click the 3 dashes to change ur password");
@@ -33,28 +34,25 @@ app.get("/",async(req, res)=>{
 
 app.post("/signup_user", async (req, res)=>{
     try{
-        const entered_username = req.body.username;
-        const entered_email = req.body.email;
-        const entered_password = req.body.password;
+        const {entered_username, entered_email, entered_password}= req.body;
+
         console.log("the user entered "+entered_username +"  " + entered_email + "  "+ entered_password);
         
-        const  user_in_db = await db.query(`select * from students where email='${entered_email}' OR username = '${entered_username}'`);
-        console.log(user_in_db.rows);
-        //we need to check if the username and email matches the data in the database
-        //console.log(user_in_db.rows[0].username);
-
-        if(user_in_db.rows.length >0){
-            res.status(400).json({message: "try entering another email and password"});
+        const  user_in_db_email = await db.query(`select * from students where email='${entered_email}'`);
+        const  user_in_db_username = await db.query(`select * from students where email='${entered_email}'`);
+        
+        if(user_in_db_email.rows.length >0){
+            res.send("email_exist");
+        }else if(user_in_db_username.rows.length >0){
+            res.send("username_exist");
         }else{
                     bcrypt.hash(entered_password, saltRounds, async(err, hash)=> {
                     await db.query(`insert into students (username,email, password) values('${entered_username}','${entered_email}','${hash}')`);
-                    res.status(200).json({ message: "user created successfully" });
-
+                    res.send( "created");
                     });
             }
         
     }catch(err){
-        console.log(err);
         res.status(500).send("something went wrong");
     }
 });
