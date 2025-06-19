@@ -15,7 +15,7 @@ const navigate = useNavigate();
         body: JSON.stringify({email, password}),
       })
       const text = await response.text();
-       if (text === 'correct') {
+      if (text === 'correct') {
       navigate('/listing'); 
     } else if (text === 'not_correct') {
       alert('Incorrect password. Try again.');

@@ -151,16 +151,18 @@ app.post("/log_in_user",async(req, res)=>{
 
         const found_user =await db.query(`select * from students where email = '${email}'`);
         console.log(found_user.rows[0]);
-        if(found_user.rows[0]){
+        if(found_user.rows.length > 0){
             const emai_in_db = found_user.rows[0].email;
             const password_in_db = found_user.rows[0].password;
-            bcrypt.compare(password, password_in_db, function(err, result) {
+            bcrypt.compare(password, password_in_db, (err, result)=> {
                 console.log(result);
                 if(result){
                     res.send("correct");
+                    console.log("correct");
                 }
                 else{
                     res.send("not_correct")
+                    console.log("not correct");
                 }
             });
         }else{
