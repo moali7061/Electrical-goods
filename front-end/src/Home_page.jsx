@@ -12,15 +12,24 @@ import better from './assets/better_furniture.png'
 function Home_page() {
 
   const navigate = useNavigate();
-  const go_to_products= ()=>{
-    navigate('/listing');
+  
+  const go_to_sign_up= ()=>{
+    navigate('/sign_up');
   }
+
+  const go_to_login= ()=>{
+    navigate('/login');
+  }
+
   return (
     <>
       <Navbar />
         <div className='section_1'>
           <h1 className='the_description'>BUY<br/>ALL YOUR<br/>FURNITURE<br/>WITH THE BEST<br/>DEALS EVER</h1>
-          <button className='Home_page_button' onClick={go_to_products}> shop Now</button>
+          <div className = 'home_page_buttons'>
+            <button className='Home_page_button' onClick={go_to_sign_up}>sign up</button>
+            <button className='Home_page_button' onClick={go_to_login}>Login</button>
+          </div>
         </div>
 
 
