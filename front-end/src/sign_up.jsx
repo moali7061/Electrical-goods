@@ -6,7 +6,36 @@ function Signup(){
 
 const navigate = useNavigate();
  
-  
+  const signing_up_user = async () => {
+    try{
+        const response = await fetch('http://localhost:3000/signup_user',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({username, email, password}),
+
+            });
+            const text = await response.text();
+            
+            if(text === 'created')
+                {
+                    alert('user created successfully \n go to home page to login');
+                }
+            else if(text ==='email_exist'){
+                alert('this email is registered before try using another email');
+            }
+            else if(text ==='username_exist'){
+                alert('this username is registered before try using another email');
+            }else{
+                alert('unexpected response ' + text);
+            }
+            
+    }catch(err){
+        console.log(err);
+    }
+  }
 
   const [email, setEmail] = useState("");
   function setting_the_email(event){
