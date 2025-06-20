@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css'
-import List from './List';
+import List from './list';
 import Home_page from './Home_page';
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';

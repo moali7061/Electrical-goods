@@ -5,6 +5,10 @@ import { useNavigate } from 'react-router-dom';
 function Signup(){
 
 const navigate = useNavigate();
+
+    const go_to_home = ()=>{
+        navigate('/home');
+    }
  
   const signing_up_user = async () => {
     try{
@@ -65,7 +69,7 @@ const navigate = useNavigate();
 
                     <div className = 'two_buttons'>
                         <button onClick={signing_up_user} style={{width:'300px', border:'solid black 2px', borderRadius: '20px'}} >Register</button>
-                        <button onClick={signing_up_user} style={{width:'300px', border:'solid black 2px', borderRadius: '20px'}} >go to home page</button>
+                        <button onClick={go_to_home} style={{width:'300px', border:'solid black 2px', borderRadius: '20px'}} >go to home page</button>
                     </div>
                 </div>
             </div>
