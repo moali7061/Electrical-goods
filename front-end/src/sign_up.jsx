@@ -22,7 +22,8 @@ const navigate = useNavigate();
 
             });
             const text = await response.text();
-            
+            console.log(text);
+
             if(text === 'created')
                 {
                     alert('user created successfully \n go to home page to login');
@@ -68,7 +69,7 @@ const navigate = useNavigate();
                     <input placeholder="password" value={password} onChange={setting_the_pssword} required ></input>
 
                     <div className = 'two_buttons'>
-                        <button onClick={signing_up_user} style={{width:'300px', border:'solid black 2px', borderRadius: '20px'}} >Register</button>
+                        <button onClick={signing_up_user} style={{width:'300px', border:'solid black 2px', borderRadius: '20px'}} >Sign up</button>
                         <button onClick={go_to_home} style={{width:'300px', border:'solid black 2px', borderRadius: '20px'}} >go to home page</button>
                     </div>
                 </div>

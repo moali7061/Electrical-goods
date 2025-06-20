@@ -34,20 +34,21 @@ app.get("/",async(req, res)=>{
 
 app.post("/signup_user", async (req, res)=>{
     try{
-        const {entered_username, entered_email, entered_password}= req.body;
+        const {username, email, password}= req.body;
 
-        console.log("the user entered "+entered_username +"  " + entered_email + "  "+ entered_password);
+
+        console.log("the user entered "+username +"  " + email + "  "+ password);
         
-        const  user_in_db_email = await db.query(`select * from students where email='${entered_email}'`);
-        const  user_in_db_username = await db.query(`select * from students where email='${entered_email}'`);
+        const  user_in_db_email = await db.query(`select email from students where email='${email}'`);
+        const  user_in_db_username = await db.query(`select username from students where email='${email}'`);
         
         if(user_in_db_email.rows.length >0){
             res.send("email_exist");
         }else if(user_in_db_username.rows.length >0){
             res.send("username_exist");
         }else{
-                    bcrypt.hash(entered_password, saltRounds, async(err, hash)=> {
-                    await db.query(`insert into students (username,email, password) values('${entered_username}','${entered_email}','${hash}')`);
+                    bcrypt.hash(password, saltRounds, async(err, hash)=> {
+                    await db.query(`insert into students (username,email, password) values('${username}','${email}','${hash}')`);
                     res.send( "created");
                     });
             }
