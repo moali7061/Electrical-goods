@@ -22,15 +22,7 @@ const db = new pg.Client({
 
 db.connect().then(console.log("connected to the database"));
 
-app.get("/",async(req, res)=>{
-    try{
-        console.log("please choose to sign up register or click the 3 dashes to change ur password");
-        //res.send("this is "+ x.rows[0]);
-    }catch(err)
-    {
-        res.send(err);
-    }
-});
+
 
 app.post("/signup_user", async (req, res)=>{
     try{
@@ -125,7 +117,7 @@ app.get("/store_sign_in", (req, res)=>{
 });
 
 
-app.get("/getproducts",async(req, res)=>{
+app.post("/getproducts",async(req, res)=>{
     try{
         const category = req.body.category;
         const products = await db.query("select * from product");

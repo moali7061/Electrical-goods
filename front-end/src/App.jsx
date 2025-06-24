@@ -12,6 +12,25 @@ function App(props) {
 
    const [products, setProducts] = useState([]);
 
+  const home_products = async ()=>{
+    try{
+      const response = await fetch('http://localhost:3000/getproducts',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      const data = await response.json();
+      setProducts(data.all_products);
+    }catch(err){
+      alert('something went wrong');
+    }
+  }
+
+  useEffect(() => {
+    home_products();
+  }, []);
+
   return (
       <Router>
       <Routes>
