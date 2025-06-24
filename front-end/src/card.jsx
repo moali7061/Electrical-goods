@@ -13,7 +13,7 @@ function Card(props){
     return(
         <div className = "card">
            <img src = {picture} className="card_image" ></img>
-           <h2>{props.description}</h2>
+           <h3>{props.product_name}</h3>
            <p>{props.description}</p>
            <button>add to cart</button>
         </div>
@@ -32,7 +32,7 @@ Card.propTypes = {
 }
 
 Card.defaultProps ={
-    product_name: 'missing the title',
+    product_name: 'missing the name',
     description: 'missing the description',
     count: 0
 }

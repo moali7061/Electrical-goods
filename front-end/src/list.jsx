@@ -13,7 +13,7 @@ function List(props){
           {products.map((element, index) => (
             <Card
               key={index}
-              title={element.product_name}
+              product_name={element.product_name}
               description={element.description}
               count={element.count}
               price={element.price}
