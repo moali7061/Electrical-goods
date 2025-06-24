@@ -13,7 +13,7 @@ function List(props){
           {products.map((element, index) => (
             <Card
               key={index}
-              title={element.title}
+              title={element.product_name}
               description={element.description}
               count={element.count}
               price={element.price}
@@ -42,7 +42,7 @@ List.defaultProps = {
 List.propTypes = {
   to_be_mapped: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
+      product_name: PropTypes.string.isRequired,
       description: PropTypes.string,
       count: PropTypes.number,
       price: PropTypes.number,
