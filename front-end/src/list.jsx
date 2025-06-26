@@ -8,7 +8,7 @@ function List(props){
 
     if(products.length >0){
       return (
-        <>
+        <div className="list">
           <Navbar/>
           {products.map((element, index) => (
             <Card
@@ -19,7 +19,7 @@ function List(props){
               price={element.price}
             />
           ))}
-        </>
+        </div>
       );
     }else{
       return(

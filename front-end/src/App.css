@@ -1,3 +1,9 @@
+.list{
+  width: 1521px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 .card{
     border: 1px solid whitesmoke;
     border-radius: 10px;

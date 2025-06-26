@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import picture from '/h-bridge.png';
-
+import { useState } from "react";
 
 function Card(props){
 
@@ -9,18 +9,41 @@ function Card(props){
         console.log(props);
     }
 
+    const [count,setCount] = useState(0);
+    
+    const increment = ()=>{
+        if(count >= props.count){
+            setCount(count);w
+        }else{
+            setCount(count+1);
+        }
+    }
+    
+    const decrement = ()=>{
+        if(count<1){
+            setCount(0);
+        }else{
+            setCount(count-1);
+        }
+    }
 
     return(
         <div className = "card">
            <img src = {picture} className="card_image" ></img>
            <h3>{props.product_name}</h3>
            <p>{props.description}</p>
-           <button>add to cart</button>
+           <p>only {props.count} available</p>
+           <div >
+                <div>
+                    <button onClick={increment}>+</button>
+                    <p>{count}</p>
+                    <button onClick={decrement}>-</button>
+                </div>
+                <button>add to cart</button>
+            </div>
         </div>
     );
 }
-
-
 
 
 
