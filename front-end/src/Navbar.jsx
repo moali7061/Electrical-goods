@@ -18,13 +18,18 @@ function Navbar(){
                 </li>
                 <li className="nav-item dropdown">
                   <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
+                    category
                   </a>
                   <ul className="dropdown-menu">
-                    <li><a className="dropdown-item" href="#">Action</a></li>
-                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                    <li><hr className="dropdown-divider" /></li>
-                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                    
+                    <li><a className="dropdown-item" href="#">Desk & desk chairs</a></li>
+                    <li><a className="dropdown-item" href="#">outdoor products</a></li>
+                    <li><a className="dropdown-item" href="#">kitchenware & tableware</a></li>
+                    <li><a className="dropdown-item" href="#">Decoration</a></li>
+                    <li><a className="dropdown-item" href="#">Sofas & armchair</a></li>
+                    <li><a className="dropdown-item" href="#">Tables & chairs</a></li>
+
+                    
                   </ul>
                 </li>
                 <li className="nav-item">
