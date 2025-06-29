@@ -36,10 +36,10 @@ function Card(props){
            <div className="button_and_counter">
                 <div className="in_button_and_counter">
                     <button onClick={increment} className="idbutton">+</button>
-                    <p>{count}</p>
+                    <p className="count">{count}</p>
                     <button onClick={decrement} className="idbutton">-</button>
                 </div>
-                <button style={{width:'200px'}}>add to cart</button>
+                <button className="add_to_cart" onClick={adding}>add to cart</button>
             </div>
         </div>
     );

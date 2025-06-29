@@ -192,28 +192,44 @@ a{
 .idbutton {
   padding-left: 0;
   padding-right: 0;
-  padding-top: 0px;     /* adjust as needed */
-  padding-bottom: 0px;  /* adjust as needed */
+  padding-top: 0px;     
+  padding-bottom: 0px;  
 
   display: flex;
-  align-items: center;   /* vertical center */
-  justify-content: center; /* horizontal center */
+  align-items: center;  
+  justify-content: center; 
 
-  width: fit-content; /* optional: shrink to content width */
+  width: fit-content; 
+  height: 15px;
   margin: 0 auto; 
   margin-right: 50px;
+  border-radius: 10%;
+  color: green;
+  opacity:0.9;
+  filter:alpha(opacity=30);
 }
 
 .in_button_and_counter {
   padding-left: 0;
   padding-right: 0;
-  padding-top: 0px;     /* adjust as needed */
-  padding-bottom: 0px;  /* adjust as needed */
-
+  padding-top: 0px;     
+  padding-bottom: 0px;  
   display: flex;
-  align-items: center;   /* vertical center */
-  justify-content: center; /* horizontal center */
-
-  width: fit-content; /* optional: shrink to content width */
+  align-items: center;  
+  justify-content: center; 
+  width: fit-content; 
   margin: 0 auto; 
+}
+
+
+.count{
+  margin-top: 15px;
+  margin-left: -50px;
+}
+
+.add_to_cart{
+  color: green;
+  opacity:0.9;
+  filter:alpha(opacity=30);
+  border-radius: 10px;
 }
