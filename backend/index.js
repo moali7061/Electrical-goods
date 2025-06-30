@@ -167,6 +167,27 @@ app.post("/log_in_user",async(req, res)=>{
     }
 });
 
+app.post('/add_to_cart',async (req, res)=>{
+    try{
+        const product_id = req.body.product_id;
+        const username = req.body.username;
+        const count = req.body.count;
+        const product = await db.query(`select * from product where product_id ='${product_id}'`);
+        console.log(product.rows[0]);
+        const total_price = product.rows[0].price * count;
+        console.log("total price is "+ total_price);
+        await db.query(`insert into orders (username, product_id, count, price)values ('${username}', '${product_id}', '${count}', '${total_price}')`);
+        const available_count_now = product.rows[0].count - count;
+        await db.query(`update product set count = ${available_count_now} where product_id = '${product_id}'`);
+        res.status(200).json({message: "item is added to the cart"});
+    }catch(err){
+        console.log(err);
+        res.status(500).json({message: "error has occured"});
+    }
+});
+
+
+
 
 app.listen(port, ()=>{
     console.log("connected on port 3000");

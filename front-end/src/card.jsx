@@ -27,6 +27,8 @@ function Card(props){
         }
     }
 
+    
+
     return(
         <div className = "card">
            <img src = {picture} className="card_image" ></img>
