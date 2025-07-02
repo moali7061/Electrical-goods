@@ -8,17 +8,28 @@ function List(props){
 
     if(products.length >0){
       return (
-        <div className="list">
-          <Navbar/>
-          {products.map((element, index) => (
-            <Card
-              key={index}
-              product_name={element.product_name}
-              description={element.description}
-              count={element.count}
-              price={element.price}
-            />
-          ))}
+        <div className="list_order">
+          <div className="list">
+            <Navbar/>
+            {products.map((element, index) => (
+              <Card
+                key={index}
+                product_name={element.product_name}
+                description={element.description}
+                count={element.count}
+                price={element.price}
+              />
+            ))} 
+          </div>
+          
+          <div className="display_orders">
+            <h1>Mohamed Aly</h1>
+            your orders are:
+            <ol>
+              <li></li>
+              <li></li>
+            </ol>
+          </div>
         </div>
       );
     }else{

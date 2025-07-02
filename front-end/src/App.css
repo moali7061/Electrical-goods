@@ -1,10 +1,25 @@
 .list{
-  width: 1521px;
+  width: 1350px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 50px;
 }
+
+.list_order{
+  display: flex;
+  flex-direction: row;
+}
+
+.display_orders{
+  background-color: lightgreen;
+  width: 171px;
+  height: 1000dvh;
+  margin-left: 1350px;
+  margin-top: 50px;
+  position: fixed;
+}
+
 .card{
     border: 1px solid whitesmoke;
     border-radius: 10px;
@@ -233,3 +248,5 @@ a{
   filter:alpha(opacity=30);
   border-radius: 10px;
 }
+
+

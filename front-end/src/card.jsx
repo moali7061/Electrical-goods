@@ -43,12 +43,29 @@ function Card(props){
                 </div>
                 <button className="add_to_cart" onClick={adding}>add to cart</button>
             </div>
+            
+            
+            
         </div>
     );
 }
 
 
-
+const add_to_cart = async()=>{
+        try{
+            const response = await fetch('http://localhost:3000/add_to_cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({username , count, product_id}),
+            })
+            const text = await response.message();
+            alert(text);
+        }catch(err){
+            console.log(err);
+        }
+    }
 
 Card.propTypes = {
     product_name: PropTypes.string,
