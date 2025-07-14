@@ -24,8 +24,6 @@ const db = new pg.Client({
 
 db.connect().then(console.log("connected to the database"));
 
-
-
 app.post("/signup_user", async (req, res)=>{
     try{
         const {username, email, password}= req.body;
@@ -51,7 +49,6 @@ app.post("/signup_user", async (req, res)=>{
         res.status(500).send("something went wrong");
     }
 });
-
 
 app.put("/change_password",async(req, res)=>{
     const old_username = req.body.username;
@@ -97,11 +94,6 @@ app.put("/change_password",async(req, res)=>{
 
 });
 
-
-
-
-
-
 app.get("/store_sign_in", (req, res)=>{
     
     const store_id = req.body.store_id;
@@ -117,7 +109,6 @@ app.get("/store_sign_in", (req, res)=>{
         res.status(500).json({message: "something went wrong"});
     }
 });
-
 
 app.post("/getproducts",async(req, res)=>{
     try{
@@ -169,23 +160,26 @@ app.post("/log_in_user",async(req, res)=>{
     }
 });
 
+app.put('/add_order', async (req, res) => {
+    try {
+        const { email, product_id, description, count, price } = req.body;
+        const total = price * count;
 
+        const query = `
+            INSERT INTO orders (email, product_id, description, count, price, total_price)
+            VALUES ($1, $2, $3, $4, $5, $6)
+        `;
 
-app.put('/add_order',async (req, res)=>{
-    try{
-        const email = req.body.email;
-        const product_id = req.body.product_id;
-        const product_titlle = req.body.product_title;
-        const count = req.body.count;
-        const price = req.body.price * count;
-        
-    }catch(err){
-        console.log("there is error:" + err);
+        await db.query(query, [email, product_id, description, count, price, total]);
+
+        res.status(200).json({ message: 'Order added successfully' });
+    } catch (err) {
+        console.error("There is an error:", err);
+        res.status(500).json({ error: 'Internal server error' });
     }
-
-
-
 });
+
+
 
 app.post('/add_to_cart',async (req, res)=>{
     try{
@@ -205,9 +199,6 @@ app.post('/add_to_cart',async (req, res)=>{
         res.status(500).json({message: "error has occured"});
     }
 });
-
-
-
 
 app.listen(port, ()=>{
     console.log("connected on port 3000");
