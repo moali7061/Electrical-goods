@@ -8,6 +8,8 @@ const app = express();
 const port = 3000;
 const saltRounds = 10;
 
+const current_email = '';
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cors());
@@ -165,6 +167,24 @@ app.post("/log_in_user",async(req, res)=>{
     }catch{
         res.status(500).json({message: "there is error in this method"});
     }
+});
+
+
+
+app.put('/add_order',async (req, res)=>{
+    try{
+        const email = req.body.email;
+        const product_id = req.body.product_id;
+        const product_titlle = req.body.product_title;
+        const count = req.body.count;
+        const price = req.body.price * count;
+        
+    }catch(err){
+        console.log("there is error:" + err);
+    }
+
+
+
 });
 
 app.post('/add_to_cart',async (req, res)=>{

@@ -35,6 +35,7 @@ function Card(props){
            <h3>{props.product_name}</h3>
            <p>{props.description}</p>
            <p>only {props.count} available</p>
+           <p>price {props.price} L.E</p>
            <div className="button_and_counter">
                 <div className="in_button_and_counter">
                     <button onClick={increment} className="idbutton">+</button>
@@ -42,10 +43,7 @@ function Card(props){
                     <button onClick={decrement} className="idbutton">-</button>
                 </div>
                 <button className="add_to_cart" onClick={adding}>add to cart</button>
-            </div>
-            
-            
-            
+            </div>    
         </div>
     );
 }
