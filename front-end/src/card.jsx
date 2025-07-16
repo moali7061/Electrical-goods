@@ -26,7 +26,6 @@ function Card(props){
             setCount(count-1);
         }
     }
-
     
 
     return(
@@ -42,7 +41,7 @@ function Card(props){
                     <p className="count">{count}</p>
                     <button onClick={decrement} className="idbutton">-</button>
                 </div>
-                <button className="add_to_cart" onClick={adding}>add to cart</button>
+                <button className="add_to_cart" onClick={add_to_cart}>add to cart</button>
             </div>    
         </div>
     );
@@ -56,7 +55,7 @@ const add_to_cart = async()=>{
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({username , count, product_id}),
+                body: JSON.stringify({email , count, product_id}),
             })
             const text = await response.message();
             alert(text);

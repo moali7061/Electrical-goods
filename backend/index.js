@@ -160,19 +160,11 @@ app.post("/log_in_user",async(req, res)=>{
     }
 });
 
-app.put('/add_order', async (req, res) => {
+app.get('/see_order', async (req, res) => {
     try {
-        const { email, product_id, description, count, price } = req.body;
-        const total = price * count;
+        
 
-        const query = `
-            INSERT INTO orders (email, product_id, description, count, price, total_price)
-            VALUES ($1, $2, $3, $4, $5, $6)
-        `;
-
-        await db.query(query, [email, product_id, description, count, price, total]);
-
-        res.status(200).json({ message: 'Order added successfully' });
+        res.status(200).json({ message: 'Orders displayed successfully' });
     } catch (err) {
         console.error("There is an error:", err);
         res.status(500).json({ error: 'Internal server error' });
@@ -184,13 +176,15 @@ app.put('/add_order', async (req, res) => {
 app.post('/add_to_cart',async (req, res)=>{
     try{
         const product_id = req.body.product_id;
-        const username = req.body.username;
+        const email = req.body.email;
         const count = req.body.count;
         const product = await db.query(`select * from product where product_id ='${product_id}'`);
         console.log(product.rows[0]);
-        const total_price = product.rows[0].price * count;
+        const price = parseFloat(product.rows[0].price);
+        const total_price = price * count;
+        const description = product.rows[0].description;
         console.log("total price is "+ total_price);
-        await db.query(`insert into orders (username, product_id, count, price)values ('${username}', '${product_id}', '${count}', '${total_price}')`);
+        await db.query(`insert into orders (email, product_id, count, price, total_price, description) values ('${email}', '${product_id}', '${count}', '${price}', '${total_price}', '${description}')`);
         const available_count_now = product.rows[0].count - count;
         await db.query(`update product set count = ${available_count_now} where product_id = '${product_id}'`);
         res.status(200).json({message: "item is added to the cart"});
