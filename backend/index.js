@@ -116,7 +116,7 @@ app.post("/getproducts",async(req, res)=>{
         const products = await db.query("select * from product");
         if(products.rows.length >0)
         {
-            console.log(products.rows);
+            //console.log(products.rows);
             res.json({all_products: products.rows});
         }
         else
@@ -132,7 +132,6 @@ app.post("/getproducts",async(req, res)=>{
 app.post("/log_in_user",async(req, res)=>{
     try{
         const {email, password} = req.body;
-
         const found_user =await db.query(`select * from students where email = '${email}'`);
         console.log(found_user.rows[0]);
         if(found_user.rows.length > 0){
@@ -182,16 +181,21 @@ app.get('/see_order', async (req, res) => {
 app.post('/add_to_cart',async (req, res)=>{
     try{
         const product_id = req.body.product_id;
-        const email = req.body.email;
+        //console.log("the product id in the back end is "+ product_id);
+        //console.log("the email in the back end is "+ email);
         const count = req.body.count;
+        //console.log("the count in the back end is "+ count);
         const product = await db.query(`select * from product where product_id ='${product_id}'`);
+        console.log(product);
+        console.log(product.rows[0]);
         console.log(product.rows[0]);
         const price = parseFloat(product.rows[0].price);
         const total_price = price * count;
         const description = product.rows[0].description;
-        console.log("total price is "+ total_price);
+        //console.log("total price is "+ total_price);
         await db.query(`insert into orders (email, product_id, count, price, total_price, description) values ('${email}', '${product_id}', '${count}', '${price}', '${total_price}', '${description}')`);
         const available_count_now = product.rows[0].count - count;
+        console.log(available_count_now);
         await db.query(`update product set count = ${available_count_now} where product_id = '${product_id}'`);
         res.status(200).json({message: "item is added to the cart"});
     }catch(err){

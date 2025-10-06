@@ -18,11 +18,10 @@ function List(props){
                 description={element.description}
                 count={element.count}
                 price={element.price}
+                product_id={element.product_id}
               />
             ))} 
           </div>
-          
-          
         </div>
       );
     }else{
