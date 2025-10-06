@@ -11,14 +11,6 @@
   flex-direction: row;
 }
 
-.display_orders{
-  background-color: lightgreen;
-  width: 171px;
-  height: 1000dvh;
-  margin-left: 1350px;
-  margin-top: 50px;
-  position: fixed;
-}
 
 .card{
     border: 1px solid whitesmoke;

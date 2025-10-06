@@ -164,6 +164,12 @@ app.get('/see_order', async (req, res) => {
     try {
         
 
+        const email = req.body.email;
+
+        const orders = await db.query(`select description, count, price, total_price from orders where email = '${email}'`);
+        console.log(orders.rows);
+
+
         res.status(200).json({ message: 'Orders displayed successfully' });
     } catch (err) {
         console.error("There is an error:", err);

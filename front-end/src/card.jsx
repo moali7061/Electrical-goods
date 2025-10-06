@@ -30,7 +30,11 @@ function Card(props){
 
     return(
         <div className = "card">
-           <img src = {picture} className="card_image" ></img>
+           <img 
+                src={`/${props.product_name}.png`} 
+                className="card_image" 
+                alt={props.product_name} 
+                />
            <h3>{props.product_name}</h3>
            <p>{props.description}</p>
            <p>only {props.count} available</p>

@@ -22,14 +22,7 @@ function List(props){
             ))} 
           </div>
           
-          <div className="display_orders">
-            <h1>Mohamed Aly</h1>
-            your orders are:
-            <ol>
-              <li></li>
-              <li></li>
-            </ol>
-          </div>
+          
         </div>
       );
     }else{
