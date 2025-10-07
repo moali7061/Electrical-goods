@@ -195,6 +195,7 @@ app.post('/add_to_cart',async (req, res)=>{
         //console.log("total price is "+ total_price);
         await db.query(`insert into orders (email, product_id, count, price, total_price, description) values ('${email}', '${product_id}', '${count}', '${price}', '${total_price}', '${description}')`);
         const available_count_now = product.rows[0].count - count;
+        
         console.log(available_count_now);
         await db.query(`update product set count = ${available_count_now} where product_id = '${product_id}'`);
         res.status(200).json({message: "item is added to the cart"});

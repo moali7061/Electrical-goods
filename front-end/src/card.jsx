@@ -65,7 +65,7 @@ function Card(props) {
                     <p className="count">{count}</p>
                     <button onClick={decrement} className="idbutton">-</button>
                 </div>
-                <button className="add_to_cart" onClick={adding}>
+                <button className="add_to_cart" onClick={adding} disabled={count <= 0}>
                     add to cart
                 </button>
             </div>    
