@@ -72,7 +72,7 @@ function Card(props) {
         </div>
     );
 }
-
+ 
 Card.propTypes = {
     product_name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,

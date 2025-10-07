@@ -30,7 +30,7 @@ function App(props) {
   useEffect(() => {
     home_products();
   }, []);
-
+ 
   return (
       <Router>
       <Routes>
@@ -38,7 +38,7 @@ function App(props) {
  
         <Route path='/sign_up' element= {<Signup/>}  />
        
-        <Route path="/home" element={<Home_page />} />
+        <Route path="/" element={<Home_page />} />
 
         <Route path="/listing" element={<List sentence='no products for home available' to_be_mapped={products}/>} />
 

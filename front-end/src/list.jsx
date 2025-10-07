@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import Card from "./card";
 import Navbar from "./Navbar";
 
-
+ 
 function List(props){
     const products = props.to_be_mapped;
 

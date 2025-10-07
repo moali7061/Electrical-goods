@@ -11,7 +11,7 @@ function Navbar(){
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/home">Home</a>
+                  <a className="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="/listing">products</a>
@@ -22,12 +22,12 @@ function Navbar(){
                   </a>
                   <ul className="dropdown-menu">
                     
-                    <li><a className="dropdown-item" href="#">Desk & desk chairs</a></li>
-                    <li><a className="dropdown-item" href="#">outdoor products</a></li>
-                    <li><a className="dropdown-item" href="#">kitchenware & tableware</a></li>
-                    <li><a className="dropdown-item" href="#">Decoration</a></li>
-                    <li><a className="dropdown-item" href="#">Sofas & armchair</a></li>
-                    <li><a className="dropdown-item" href="#">Tables & chairs</a></li>
+                    <li><a className="dropdown-item" href="#">elsewedy cable</a></li>
+                    <li><a className="dropdown-item" href="#">B-Tech</a></li>
+                    <li><a className="dropdown-item" href="#">Sanshie</a></li>
+                    <li><a className="dropdown-item" href="#"></a></li>
+                    <li><a className="dropdown-item" href="#"></a></li>
+                    <li><a className="dropdown-item" href="#"></a></li>
 
                     
                   </ul>

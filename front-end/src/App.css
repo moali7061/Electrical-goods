@@ -4,6 +4,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 50px;
+  width: 100%;
 }
 
 .list_order{
@@ -12,20 +13,23 @@
 }
 
 
-.card{
-    border: 1px solid whitesmoke;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.101);
-    padding: 20px;
-    margin: 10px;
-    text-align: center;
-    max-width: 260px;
-    display: inline-block;
+.card {
+  border: 1px solid whitesmoke;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.101);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  width: 260px;   /* fixed width */
+  height: 350px;  /* fixed height (adjust to what you need) */
+  display: inline-block;
+  vertical-align: top; /* keeps cards aligned at the top */
 }
 
 .card_image{
-  width: 100%;
-  height: auto; 
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
 }
 .section_1 {
   margin-top: 50px;
