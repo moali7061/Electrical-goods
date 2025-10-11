@@ -245,4 +245,14 @@ a{
   border-radius: 10px;
 }
 
-
+.change_password {
+  background-image: url('./assets/slide_2.jpg');
+  background-size: cover;        
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;                  
+  height: 100vh;                 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

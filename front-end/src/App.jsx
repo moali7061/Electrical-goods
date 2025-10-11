@@ -6,7 +6,7 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './Login'
 import Signup from './sign_up';
-
+import Change_password from './change_password';
 
 function App(props) {
 
@@ -39,6 +39,8 @@ function App(props) {
         <Route path='/sign_up' element= {<Signup/>}  />
        
         <Route path="/" element={<Home_page />} />
+
+        <Route path="/change_password" element={<Change_password/>} />
 
         <Route path="/listing" element={<List sentence='no products for home available' to_be_mapped={products}/>} />
 

@@ -21,6 +21,9 @@ function Home_page() {
     navigate('/login');
   }
 
+  const go_to_change_password= ()=>{
+    navigate('/change_password');
+  }
   return (
     <>
       <Navbar />
@@ -29,6 +32,7 @@ function Home_page() {
           <div className = 'home_page_buttons'>
             <button className='Home_page_button' onClick={go_to_sign_up}>sign up</button>
             <button className='Home_page_button' onClick={go_to_login}>Login</button>
+            <button className='Home_page_button' onClick={go_to_change_password}>change password</button>
           </div>
         </div>
 
