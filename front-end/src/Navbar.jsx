@@ -22,7 +22,7 @@ function Navbar(){
                   </a>
                   <ul className="dropdown-menu">
                     
-                    <li><a className="dropdown-item" href="#">elsewedy cable</a></li>
+                    <li><a className="dropdown-item" href="http://localhost:3000/getproducts?category">elsewedy cable</a></li>
                     <li><a className="dropdown-item" href="#">B-Tech</a></li>
                     <li><a className="dropdown-item" href="#">Sanshie</a></li>
                     <li><a className="dropdown-item" href="#"></a></li>

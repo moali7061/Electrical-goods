@@ -8,7 +8,7 @@ const app = express();
 const port = 3000;
 const saltRounds = 10;
 
-const current_email = '';
+let current_email = null;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -113,7 +113,13 @@ app.get("/store_sign_in", (req, res)=>{
 app.post("/getproducts",async(req, res)=>{
     try{
         const category = req.body.category;
-        const products = await db.query("select * from product");
+        const products = [];
+        console.log(category);
+        if(category.length == 0){
+            products = await db.query("select * from product");
+        }else{
+            products = await db.query(`select * from product where category = '${category}'`);
+        }
         if(products.rows.length >0)
         {
             //console.log(products.rows);
@@ -128,6 +134,14 @@ app.post("/getproducts",async(req, res)=>{
     }
 });
 
+app.get("/current_email", (req, res)=>{
+  try{
+    console.log("we are now checking");
+    res.send(current_email);
+  }catch(err){
+    res.status(400).send("current email is not saved globally");
+  }  
+});
 
 app.post("/log_in_user",async(req, res)=>{
     try{
@@ -135,11 +149,11 @@ app.post("/log_in_user",async(req, res)=>{
         const found_user =await db.query(`select * from students where email = '${email}'`);
         console.log(found_user.rows[0]);
         if(found_user.rows.length > 0){
-            const emai_in_db = found_user.rows[0].email;
             const password_in_db = found_user.rows[0].password;
             bcrypt.compare(password, password_in_db, (err, result)=> {
                 console.log(result);
                 if(result){
+                    current_email = email;
                     res.send("correct");
                     console.log("correct");
                 }
@@ -151,8 +165,6 @@ app.post("/log_in_user",async(req, res)=>{
         }else{
             res.send("user_not_found");
         }
-
-
 
     }catch{
         res.status(500).json({message: "there is error in this method"});
