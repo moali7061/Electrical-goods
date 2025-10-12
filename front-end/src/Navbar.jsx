@@ -7,7 +7,7 @@ function Navbar(){
   const navigate = useNavigate();
   
   const [category, setCategory] = useState("");
-  const [products, setProducts] = useState("");
+  const [products, setProducts] = useState([]);
 
   async function choose_category(event){
 
@@ -26,7 +26,14 @@ function Navbar(){
         console.log("waiting for the data to be selected");
         const data = await response.json();
         console.log("data recieved: " ,data.all_products);
+        
+        const products = data.all_products;
+        if(products){
+          setProducts(products);
+          navigate("/listing", {state:{products: products}});
 
+        }
+        
       }catch(err){
       console.log(err)
     }
@@ -45,7 +52,7 @@ function Navbar(){
                   <a className="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/listing">products</a>
+                  <a className="nav-link" href="/listing" value="" onClick={choose_category}>All products</a>
                 </li>
                 <li className="nav-item dropdown">
                   <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,8 +61,8 @@ function Navbar(){
                   <ul className="dropdown-menu">
                     
                     <li><button type="button" value="cable" className="button_in_ordered_list" onClick={choose_category}>cable</button></li>
-                    <li><button value="switch" className="button_in_ordered_list">switch</button></li>
-                    <li><button value="dummy" className="button_in_ordered_list">dummy</button></li>
+                    <li><button type="button" value="switch" className="button_in_ordered_list" onClick={choose_category}>switch</button></li>
+                    <li><button type="button" value="dummy" className="button_in_ordered_list" onClick={choose_category}>dummy</button></li>
                     
                   </ul>
                 </li>

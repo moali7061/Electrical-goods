@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
 import Card from "./card";
 import Navbar from "./Navbar";
+import { useLocation } from "react-router-dom";
 
  
 function List(props){
-    const products = props.to_be_mapped;
+  const location = useLocation();  
+  const products = location.state?.products || props.to_be_mapped || [];
 
     if(products.length >0){
       return (
