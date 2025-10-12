@@ -1,5 +1,13 @@
+import { useState } from "react";
+
 
 function Navbar(){
+
+  const [category, setCategory] = useState("");
+  
+  function choose_category(event){
+      setCategory(event.target.value);
+  }
     return(<>
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
           <div className="container-fluid">
@@ -21,14 +29,10 @@ function Navbar(){
                     category
                   </a>
                   <ul className="dropdown-menu">
-                    
-                    <li><a className="dropdown-item" href="http://localhost:3000/getproducts?category">elsewedy cable</a></li>
-                    <li><a className="dropdown-item" href="#">B-Tech</a></li>
-                    <li><a className="dropdown-item" href="#">Sanshie</a></li>
-                    <li><a className="dropdown-item" href="#"></a></li>
-                    <li><a className="dropdown-item" href="#"></a></li>
-                    <li><a className="dropdown-item" href="#"></a></li>
-
+                     
+                    <li><button className="button_in_ordered_list">elsewedy cable</button></li>
+                    <li><button className="button_in_ordered_list">B-Tech</button></li>
+                    <li><button className="button_in_ordered_list">Sanshie</button></li>
                     
                   </ul>
                 </li>
