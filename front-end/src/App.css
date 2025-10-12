@@ -256,3 +256,9 @@ a{
   align-items: center;
   justify-content: center;
 }
+
+
+.buttons_in_row{
+  display: flex;
+  flex-direction: row;
+}
