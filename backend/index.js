@@ -112,12 +112,14 @@ app.get("/store_sign_in", (req, res)=>{
 
 app.post("/getproducts",async(req, res)=>{
     try{
-        const category = req.body.category;
-        const products = [];
+        const category = req.body.category || "";
+        let products;
         console.log(category);
         if(category.length == 0){
+            console.log("select all products");
             products = await db.query("select * from product");
         }else{
+            console.log("select specific products according to the category");
             products = await db.query(`select * from product where category = '${category}'`);
         }
         if(products.rows.length >0)
@@ -129,7 +131,8 @@ app.post("/getproducts",async(req, res)=>{
         {
             res.status(200).json({message: "no products in the website yet"})
         }
-    }catch{
+    }catch(err){
+        console.log("the error is:   "+err);
         res.status(500).json({message: "can not get products now"});
     }
 });

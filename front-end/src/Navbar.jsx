@@ -4,14 +4,28 @@ import { useState } from "react";
 function Navbar(){
 
   const [category, setCategory] = useState("");
-  
-  function choose_category(event){
+  const [product, setProduct]= useState([]);
+
+  async function choose_category(event){
       setCategory(event.target.value);
+      console.log(event.target.value);
+      try{
+      const response = await fetch('http://localhost:3000/getproducts',{
+          method: "POST",
+          headers: { "Content-Type": "application/json"},
+          body: JSON.parse({category: event.target.value}),
+        })
+        console.log("waiting for the data to be selected");
+        const data = await response.json();
+        console.log(data)
+    }catch(err){
+      console.log(err)
+    }
   }
     return(<>
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">Navbar</a>
+            <a className="navbar-brand" href="/">Navbar</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
@@ -29,10 +43,10 @@ function Navbar(){
                     category
                   </a>
                   <ul className="dropdown-menu">
-                     
-                    <li><button className="button_in_ordered_list">elsewedy cable</button></li>
-                    <li><button className="button_in_ordered_list">B-Tech</button></li>
-                    <li><button className="button_in_ordered_list">Sanshie</button></li>
+                    
+                    <li><button value="cable" className="button_in_ordered_list" onClick={choose_category}>cable</button></li>
+                    <li><button value="switch" className="button_in_ordered_list">switch</button></li>
+                    <li><button value="dummy" className="button_in_ordered_list">dummy</button></li>
                     
                   </ul>
                 </li>

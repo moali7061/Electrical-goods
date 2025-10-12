@@ -28,9 +28,8 @@ function List(props){
       return(
         <div className="noproducs">
           <Navbar/>
-          <h4 style={{marginLeft: 'auto', fontSize: '50px'}}>{props.sentence}</h4>
+          <h4 style={{marginLeft: 'auto', fontSize: '50px'}}>no products to be shown now</h4>
         </div>
-
       );
     }
 
