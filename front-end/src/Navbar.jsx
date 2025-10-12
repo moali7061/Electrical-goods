@@ -1,24 +1,33 @@
 import { useState } from "react";
-
+import List from "./list";
+import { useNavigate } from "react-router-dom";
 
 function Navbar(){
 
+  const navigate = useNavigate();
+  
   const [category, setCategory] = useState("");
-  const [product, setProduct]= useState([]);
+  const [products, setProducts] = useState("");
 
   async function choose_category(event){
-      setCategory(event.target.value);
-      console.log(event.target.value);
+
+      console.log("choose_category function triggered");
+      const category_selected = event.target.value;
+      setCategory(category_selected);
+      console.log("the category that is selected keep in mind that I am in the navbar.jsx now line 12"+category_selected);
+      
       try{
       const response = await fetch('http://localhost:3000/getproducts',{
           method: "POST",
           headers: { "Content-Type": "application/json"},
-          body: JSON.parse({category: event.target.value}),
+          body: JSON.stringify({category: category_selected}),
         })
+      
         console.log("waiting for the data to be selected");
         const data = await response.json();
-        console.log(data)
-    }catch(err){
+        console.log("data recieved: " ,data.all_products);
+
+      }catch(err){
       console.log(err)
     }
   }
@@ -44,7 +53,7 @@ function Navbar(){
                   </a>
                   <ul className="dropdown-menu">
                     
-                    <li><button value="cable" className="button_in_ordered_list" onClick={choose_category}>cable</button></li>
+                    <li><button type="button" value="cable" className="button_in_ordered_list" onClick={choose_category}>cable</button></li>
                     <li><button value="switch" className="button_in_ordered_list">switch</button></li>
                     <li><button value="dummy" className="button_in_ordered_list">dummy</button></li>
                     
