@@ -13,6 +13,17 @@ function Change_password(){
         setPassword(event.target.value);
     }
 
+    async function change_the_password(){
+        try{
+            const response = await fetch('http://localhost:3000/change_password',{
+                method: 'PUT',
+                headers: { "Content-Type": "application/json"},
+            })
+        }catch(err){
+
+        }
+    }
+
     return(
         <div className="change_password" >
             <div className="inputing_fields">

@@ -51,23 +51,21 @@ app.post("/signup_user", async (req, res)=>{
 });
 
 app.put("/change_password",async(req, res)=>{
-    const old_username = req.body.username;
     const old_email = req.body.email;
     const old_password = req.body.old_password;
     const new_password = req.body.new_password;
-    const new_username = req.body.new_username;
 
     try{
         //const check_username = await db.query(`select username from students where email = ${old_email}`);
         const dbrow = await db.query('SELECT * FROM students WHERE  email= $1', [old_email]);
         
         if(dbrow.rows.length === 0){
-            res.status(400).json({message: "the entered email did not found"});
+            res.status(400).json({message: "the entered email is not found"});
         }
         
         console.log("password in the database is " + dbrow.rows[0].password);
 
-        if(dbrow.rows[0].username === old_username){
+        if(dbrow.rows[0].email === old_email){
             bcrypt.compare(old_password, dbrow.rows[0].password, function(err, result) {
 
                 console.log("Plain password from user:", old_password);
@@ -75,7 +73,7 @@ app.put("/change_password",async(req, res)=>{
 
                 if(result){
                     bcrypt.hash(new_password, saltRounds, async(err, hash)=> {
-                        await db.query(`update students set password = '${hash}' , username = '${new_username}' where email = '${old_email}'`);
+                        await db.query(`update students set password = '${hash}'  where email = '${old_email}'`);
                         res.status(200).json({ message: "user updated successfully" });
 
                         });
