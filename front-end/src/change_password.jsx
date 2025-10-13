@@ -1,16 +1,27 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 function Change_password(){
+
+    const navigate = useNavigate();
+    function go_to_home_page(){
+        navigate("/");
+    }
 
     const [email, setEmail] = useState("");
     function setting_the_email (event){
         setEmail(event.target.value);
     }
 
-    const [password, setPassword] = useState("");
-    function setting_the_password (event){
-        setPassword(event.target.value);
+    const [newpassword, setNewpassword] = useState("");
+    function setting_the_newpassword (event){
+        setNewpassword(event.target.value);
+    }
+
+    const [oldpassword,  setOldpassword] = useState("");
+    function setting_the_oldpassword(event){
+        setOldpassword(event.target.value);
     }
 
     async function change_the_password(){
@@ -18,9 +29,11 @@ function Change_password(){
             const response = await fetch('http://localhost:3000/change_password',{
                 method: 'PUT',
                 headers: { "Content-Type": "application/json"},
+                body: JSON.stringify({email: email, new_password: newpassword})
             })
-        }catch(err){
 
+        }catch(err){
+            console.log(err);
         }
     }
 
@@ -28,10 +41,11 @@ function Change_password(){
         <div className="change_password" >
             <div className="inputing_fields">
                 <input placeholder="email" value={email} onChange={setting_the_email} required></input>
-                <input placeholder="password" value={password} onChange={setting_the_password} required></input>
+                <input placeholder="old password" value={oldpassword} onChange={setting_the_oldpassword}></input>
+                <input placeholder="new password" value={newpassword} onChange={setting_the_newpassword} required></input>
                 <div className="buttons_in_row">
-                    <button className="Home_page_button">change password</button>
-                    <button className="Home_page_button">go to home</button>
+                    <button className="Home_page_button" onClick={change_the_password}>change password</button>
+                    <button className="Home_page_button" onClick={go_to_home_page}>go to home</button>
                 </div>
             </div>
         </div>
