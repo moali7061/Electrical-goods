@@ -51,16 +51,15 @@ app.post("/signup_user", async (req, res)=>{
 });
 
 app.put("/change_password",async(req, res)=>{
-    const old_email = req.body.email;
-    const old_password = req.body.old_password;
-    const new_password = req.body.new_password;
+
+    const {old_email, old_password, new_password} = req.body;
 
     try{
-        //const check_username = await db.query(`select username from students where email = ${old_email}`);
+        console.log("the email_entered is "+ old_email);
         const dbrow = await db.query('SELECT * FROM students WHERE  email= $1', [old_email]);
-        
+        console.log("dbrow.rows.length" + dbrow.rows.length);
         if(dbrow.rows.length === 0){
-            res.status(400).json({message: "the entered email is not found"});
+            res.status(200).send({message: "the entered email is not found"});
         }
         
         console.log("password in the database is " + dbrow.rows[0].password);
@@ -74,22 +73,26 @@ app.put("/change_password",async(req, res)=>{
                 if(result){
                     bcrypt.hash(new_password, saltRounds, async(err, hash)=> {
                         await db.query(`update students set password = '${hash}'  where email = '${old_email}'`);
-                        res.status(200).json({ message: "user updated successfully" });
+                        console.log("password changed");
+                        res.status(200).send({ message: "user updated successfully" });
+                        
 
                         });
                 }else{
-                    res.status(400).json({message: "the old password you entered is incorrect"});
+                    console.log("xxthe old password you entered is incorrect");
+                    res.status(200).send({message: "the old password you entered is incorrect"});
+                    
                 }
             });
         }else{
-            res.status(400).json({message: "username did not match old username"});
+            console.log("username did not match old username");
+            res.status(200).send({message: "username did not match old username"});
         }
 
-    }catch{
-        res.status(500).json({message: "something went wrong"});
+    }catch(err){
+        console.log("the error is: "+ err);
+        res.status(500).send({message: "something went wrong"});
     }
-
-
 });
 
 app.get("/store_sign_in", (req, res)=>{
