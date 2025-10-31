@@ -12,7 +12,7 @@ const navigate = useNavigate();
  
   const signing_up_user = async () => {
     try{
-        const response = await fetch('http://localhost:3000/signup_user',
+        const response = await fetch('http://localhost:3000/api/users/signup_user',
             {
                 method: 'POST',
                 headers: {
@@ -21,20 +21,20 @@ const navigate = useNavigate();
                 body: JSON.stringify({username, email, password}),
 
             });
-            const text = await response.text();
-            console.log(text);
+            const text = await response.json();
+            console.log("the text is",text);
+            console.log(text.message);
 
-            if(text === 'created')
+            if(text.message === 'created')
                 {
                     alert('user created successfully \n go to home page to login');
                 }
-            else if(text ==='email_exist'){
+            else if(text.message ==='email exists'){
                 alert('this email is registered before try using another email');
-            }
-            else if(text ==='username_exist'){
-                alert('this username is registered before try using another email');
+            }else if(text.message === 'username exists'){
+                alert('this username is used before try using another one');
             }else{
-                alert('unexpected response ' + text);
+                alert('unexpected response haa' + text);
             }
             
     }catch(err){

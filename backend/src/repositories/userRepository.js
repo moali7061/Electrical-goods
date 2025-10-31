@@ -7,6 +7,11 @@ export async function findByEmail(email){
     return result.rows[0];
 }
 
+export async function findByUser(username){
+    const result = await db.query('select * from students where username=$1',[username]);
+    return result.rows[0];
+}
+
 export async function changePassword(email, hashedPassword){
     await db.query('UPDATE students SET password = $1 where email = $2',[hashedPassword, email]);
 }
