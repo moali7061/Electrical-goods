@@ -1,9 +1,9 @@
-import userService from '../services/userService.js'
+import {registerUser} from '../services/userService.js'
 
 export const signUpUser = async(req, res)=>{
     try{
         const {username, email, password} = req.body;
-        const result = await userService.registerUser(username, email, password);
+        const result = await registerUser(username, email, password);
         
         res.status(200).json({message: result});
     }

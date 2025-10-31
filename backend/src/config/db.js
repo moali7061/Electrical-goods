@@ -1,4 +1,4 @@
-import {client} from 'pg';
+import {Client} from 'pg';
 import pg from 'pg';
 
 const db = new pg.Client({

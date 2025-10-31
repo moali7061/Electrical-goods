@@ -3,7 +3,7 @@ import db from '../config/db.js';
 //need to change the table name from student to user
 
 export async function findByEmail(email){
-    const result = await db.query('select * from sudents where email=$1',[email]);
+    const result = await db.query('select * from students where email=$1',[email]);
     return result.rows[0];
 }
 
