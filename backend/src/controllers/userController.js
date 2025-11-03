@@ -1,4 +1,4 @@
-import {registerUser} from '../services/userService.js'
+import {registerUser,change_password} from '../services/userService.js'
 
 export const signUpUser = async(req, res)=>{
     try{
@@ -8,6 +8,17 @@ export const signUpUser = async(req, res)=>{
         res.status(200).json({message: result});
     }
     catch(err){
+        res.status(500).json({message: err.message});
+    }
+}
+
+export const changePassword = async(req, res)=>{
+    try{
+        const {email, old_password, new_password} = req.body;
+        const result = await change_password(email, old_password, new_password);
+        res.status(200).json({message: result});
+    }catch(err){
+        console.log(err);
         res.status(500).json({message: err.message});
     }
 }
