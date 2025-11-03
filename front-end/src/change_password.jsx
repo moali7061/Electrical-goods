@@ -26,10 +26,10 @@ function Change_password(){
 
     async function change_the_password(){
         try{
-            const response = await fetch('http://localhost:3000/change_password',{
-                method: 'PUT',
+            const response = await fetch('http://localhost:3000/api/users/change_password',{
+                method: 'POST',
                 headers: { "Content-Type": "application/json"},
-                body: JSON.stringify({old_email: email, old_password: oldpassword,new_password: newpassword})
+                body: JSON.stringify({email: email, old_password: oldpassword,new_password: newpassword})
             })
             console.log("Font-end: the email is :"+email +"\n"+"the old password is :"+oldpassword );
             const response_message =await response.json();
