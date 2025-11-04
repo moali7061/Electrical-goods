@@ -46,14 +46,14 @@ export const login_user = async(email, password)=>{
     try{
         const email_exist = await findByEmail(email);
         if(!email_exist){
-            return("email does not exists please try entering the correct email");
+            return("user_not_found");
         }
 
         const password_in_db = await old_password_returned(email);
 
        const result = await bcrypt.compare(password, password_in_db);
 
-       return result? "login successfully":"password is incorrect please enter the correct password";
+       return result? "correct":"not_correct";
         
 
     }catch(err){
