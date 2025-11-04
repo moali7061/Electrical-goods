@@ -12,7 +12,7 @@ export async function findByUser(username){
     return result.rows[0];
 }
 
-export async function old_password_returned(email, hashedpassword){
+export async function old_password_returned(email){
     const result = await db.query('select password from students where email=$1',[email]);
     console.log("the result here is ", result.rows);
     console.log("the length =", result.rows.length);

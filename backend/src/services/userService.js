@@ -40,3 +40,23 @@ export const change_password = async(email, old_password, new_password)=>{
         console.log(err);
     }
 }
+
+
+export const login_user = async(email, password)=>{
+    try{
+        const email_exist = await findByEmail(email);
+        if(!email_exist){
+            return("email does not exists please try entering the correct email");
+        }
+
+        const password_in_db = await old_password_returned(email);
+
+       const result = await bcrypt.compare(password, password_in_db);
+
+       return result? "login successfully":"password is incorrect please enter the correct password";
+        
+
+    }catch(err){
+        console.log(err);
+    }
+}
