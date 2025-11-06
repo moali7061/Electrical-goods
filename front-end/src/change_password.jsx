@@ -31,9 +31,9 @@ function Change_password(){
                 headers: { "Content-Type": "application/json"},
                 body: JSON.stringify({email: email, old_password: oldpassword,new_password: newpassword})
             })
-            console.log("Font-end: the email is :"+email +"\n"+"the old password is :"+oldpassword );
+            //console.log("Font-end: the email is :"+email +"\n"+"the old password is :"+oldpassword );
             const response_message =await response.json();
-            console.log("the message is :"+response_message.message);
+            //console.log("the message is :"+response_message.message);
             alert(response_message.message);
             
 
