@@ -1,6 +1,9 @@
 import db from '../config/db.js';
 
+//user part
+
 //need to change the table name from student to user
+
 
 export async function findByEmail(email){
     const result = await db.query('select * from students where email=$1',[email]);
@@ -30,3 +33,4 @@ export async function changePassword(email, hashedPassword){
 export async function createUser(username, email, hashedPassword){
     await db.query('insert into students (username, email, password) values($1, $2, $3)',[username, email, hashedPassword]);
 }
+

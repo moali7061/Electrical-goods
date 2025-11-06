@@ -17,7 +17,7 @@ function Navbar(){
       console.log("the category that is selected keep in mind that I am in the navbar.jsx now line 12"+category_selected);
       
       try{
-      const response = await fetch('http://localhost:3000/getproducts',{
+      const response = await fetch('http://localhost:3000/api/users/get_products_by_categorie',{
           method: "POST",
           headers: { "Content-Type": "application/json"},
           body: JSON.stringify({category: category_selected}),

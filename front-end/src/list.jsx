@@ -5,9 +5,11 @@ import { useLocation } from "react-router-dom";
 
  
 function List(props){
-  const location = useLocation();  
-  const products = location.state?.products || props.to_be_mapped || [];
+  const location = useLocation(); 
+  console.log("props haa", props.to_be_mapped); 
+  const products =  location.state?.products || props.to_be_mapped || [];
 
+  console.log("products here is" ,products);
     if(products.length >0){
       return (
         <div className="list_order">

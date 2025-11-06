@@ -14,14 +14,15 @@ function App(props) {
 
   const home_products = async ()=>{
     try{
-      const response = await fetch('http://localhost:3000/getproducts',{
-        method: 'POST',
+      const response = await fetch('http://localhost:3000/api/users/get_all_products',{
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json'
         },
       })
       const data = await response.json();
-      setProducts(data.all_products);
+      console.log(data);
+      setProducts(data);
     }catch(err){
       alert('something went wrong');
     }
@@ -42,7 +43,7 @@ function App(props) {
 
         <Route path="/change_password" element={<Change_password/>} />
 
-        <Route path="/listing" element={<List sentence='no products for home available' to_be_mapped={products}/>} />
+        <Route path="/listing" element={<List to_be_mapped={products}/>} />
 
       </Routes>
   </Router>
