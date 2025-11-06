@@ -9,6 +9,23 @@ function Navbar(){
   const [category, setCategory] = useState("");
   const [products, setProducts] = useState([]);
 
+  async function all_products(event){
+    try{
+      const response = await fetch('http://localhost:3000/api/users/get_all_products',{
+          method: "GET",
+          headers: { "Content-Type": "application/json"}
+      })
+      const data = await response.json();
+      const products = data;
+      if(products){
+          setProducts(products);
+          navigate("/listing", {state:{products: products}});
+
+        }
+    }catch(err){
+      console.log(err);
+    }
+  }
   async function choose_category(event){
 
       console.log("choose_category function triggered");
@@ -17,17 +34,16 @@ function Navbar(){
       console.log("the category that is selected keep in mind that I am in the navbar.jsx now line 12"+category_selected);
       
       try{
-      const response = await fetch('http://localhost:3000/api/users/get_products_by_categorie',{
+      const response = await fetch('http://localhost:3000/api/users/product_by_category',{
           method: "POST",
           headers: { "Content-Type": "application/json"},
           body: JSON.stringify({category: category_selected}),
         })
       
-        console.log("waiting for the data to be selected");
         const data = await response.json();
-        console.log("data recieved: " ,data.all_products);
+        console.log("data recieved: " ,data);
         
-        const products = data.all_products;
+        const products = data;
         if(products){
           setProducts(products);
           navigate("/listing", {state:{products: products}});
@@ -52,7 +68,7 @@ function Navbar(){
                   <a className="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/listing" value="" onClick={choose_category}>All products</a>
+                  <a className="nav-link" href="/listing" value="" onClick={all_products}>All products</a>
                 </li>
                 <li className="nav-item dropdown">
                   <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,7 +76,7 @@ function Navbar(){
                   </a>
                   <ul className="dropdown-menu">
                     
-                    <li><button type="button" value="cable" className="button_in_ordered_list" onClick={choose_category}>cable</button></li>
+                    <li><button type="button" value="cabels" className="button_in_ordered_list" onClick={choose_category}>cable</button></li>
                     <li><button type="button" value="switch" className="button_in_ordered_list" onClick={choose_category}>switch</button></li>
                     <li><button type="button" value="dummy" className="button_in_ordered_list" onClick={choose_category}>dummy</button></li>
                     

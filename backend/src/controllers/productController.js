@@ -1,4 +1,4 @@
-import {all_products} from '../services/productServices.js'
+import {all_products, product_by_category} from '../services/productServices.js'
 
 export const allProducts = async (req, res)=>{
 
@@ -11,3 +11,14 @@ export const allProducts = async (req, res)=>{
         res.status(500).send(err);
     }
 } 
+
+export const product_category = async(req, res)=>{
+    try{
+        const category = req.body.category;
+        const list = await product_by_category(category);
+        res.status(200).send(list);
+    }catch(err){
+        res.status(500).send(err);
+        console.log(err);
+    }
+}

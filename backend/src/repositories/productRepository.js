@@ -7,6 +7,6 @@ export async function getAllProducts(){
 }
 
 export async function getProductsByCategory(category){
-    const list = await db.query('select * from products where category = $1', [category]);
+    const list = await db.query('select * from product where category = $1', [category]);
     return list.rows;
 }
