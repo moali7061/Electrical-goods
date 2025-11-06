@@ -1,8 +1,10 @@
 import { useState } from "react";
 import List from "./list";
 import { useNavigate } from "react-router-dom";
+import RangeSlider from '../src/slider.jsx';
+import PropTypes from "prop-types";
 
-function Navbar(){
+function Navbar(props){
 
   const navigate = useNavigate();
   
@@ -86,10 +88,11 @@ function Navbar(){
                   <a className="nav-link disabled" aria-disabled="true">Disabled</a>
                 </li>
               </ul>
-              <form className="d-flex" role="search">
+              {/* <form className="d-flex" role="search">
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                 <button className="btn btn-outline-success" type="submit">Search</button>
-              </form>
+              </form> */}
+            {props.type!=="home" && <RangeSlider/>}
             </div>
       </div>
       </nav>

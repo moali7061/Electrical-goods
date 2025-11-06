@@ -26,7 +26,7 @@ function Home_page() {
   }
   return (
     <>
-      <Navbar />
+      <Navbar type='home'/>
         <div className='section_1'>
           <h1 className='the_description'>BUY<br/>ALL YOUR<br/>FURNITURE<br/>WITH THE BEST<br/>DEALS EVER</h1>
           <div className = 'home_page_buttons'>
