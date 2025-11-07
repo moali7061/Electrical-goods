@@ -3,11 +3,14 @@ import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
 
-export default function RangeSlider() {
-  const [value, setValue] = React.useState([20, 37]);
+export default function RangeSlider({onRangeChange}) {
+  const [value, setValue] = React.useState([0, 20000]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    if (onRangeChange) {
+      onRangeChange(newValue);
+    }
   };
 
   return (
@@ -16,8 +19,7 @@ export default function RangeSlider() {
         value={value}
         onChange={handleChange}
         min={0}
-        max={100}
-        // remove the default popup label
+        max={20000}
         valueLabelDisplay="off"
       />
 

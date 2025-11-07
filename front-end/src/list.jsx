@@ -2,20 +2,28 @@ import PropTypes from "prop-types";
 import Card from "./card";
 import Navbar from "./Navbar";
 import { useLocation } from "react-router-dom";
+import { useState } from "react";
 
  
 function List(props){
   const location = useLocation(); 
   console.log("props haa", props.to_be_mapped); 
   const products =  location.state?.products || props.to_be_mapped || [];
+  const [priceRange, setPriceRange] = useState([0, 20000]);
+
+  const filteredProducts = products.filter(p => 
+    p.price >= priceRange[0] && p.price <= priceRange[1]
+  );
 
   console.log("products here is" ,products);
     if(products.length >0){
       return (
         <div className="list_order">
           <div className="list">
-            <Navbar/>
-            {products.map((element, index) => (
+
+            <Navbar type="listing" onFilter={(range) => setPriceRange(range)} />
+
+            {filteredProducts.map((element, index) => (
               <Card
                 key={index}
                 product_name={element.product_name}

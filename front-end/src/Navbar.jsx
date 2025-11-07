@@ -10,6 +10,16 @@ function Navbar(props){
   
   const [category, setCategory] = useState("");
   const [products, setProducts] = useState([]);
+  const [range, setRange] = useState([0,20000]);
+
+  const handleSliderChange = (newRange) => {
+    setRange(newRange); 
+    console.log("the new range is " ,newRange);     
+    if (props.onFilter) {
+      props.onFilter(newRange);
+    } 
+  };
+
 
   async function all_products(event){
     try{
@@ -92,7 +102,7 @@ function Navbar(props){
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                 <button className="btn btn-outline-success" type="submit">Search</button>
               </form> */}
-            {props.type!=="home" && <RangeSlider/>}
+            {props.type!=="home" && <RangeSlider onRangeChange={handleSliderChange}/>}
             </div>
       </div>
       </nav>
