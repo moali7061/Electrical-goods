@@ -1,4 +1,5 @@
 import {registerUser,change_password, login_user} from '../services/userService.js'
+import { findByEmail } from '../repositories/userRepository.js';
 
 export const signUpUser = async(req, res)=>{
     try{
@@ -29,6 +30,11 @@ export const login = async(req, res)=>{
     try{
         const {email, password}= req.body;
         const result = await login_user(email, password);
+        const user = await findByEmail(email)
+        if (result==="correct") {
+             req.session.userId = user.id;
+             req.session.username = user.username;    
+        }
         res.status(200).json({message: result});
     }catch(err){
         res.status(500).json({message: err.message});
