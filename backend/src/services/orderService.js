@@ -1,10 +1,21 @@
-import add_order from'../repositories/orderRepository.js'
+import {add_order, found_combination, updater}from'../repositories/orderRepository.js'
+
+    
 
 export const add_order = async(user_id, product_id, count, price_one)=>{
     try{
-        
-    }
-    catch(err){
-
+           const x = await found_combination(user_id, product_id);
+           if(x.length() > 0){
+                const curr_count = x.count + count;
+                await updater(curr_count, product_id, user_id);
+                return "order updated successfully"
+            }else{
+                var datetime = new Date();
+                await add_order(user_id, product_id, count, datetime, price_one);
+                return "order added successfully";
+            }
+    }catch(err){
+        console.log(err);
+        res.status(500).send(err);
     }
 }
