@@ -33,6 +33,7 @@ export const login = async(req, res)=>{
         const user = await findByEmail(email)
         if (result==="correct") {
              req.session.userId = user.id;
+             console.log("request session id = "+ req.session.userId);
              req.session.username = user.username;    
         }
         res.status(200).json({message: result});
@@ -40,4 +41,11 @@ export const login = async(req, res)=>{
         res.status(500).json({message: err.message});
         console.log(err);
     }
+}
+
+export const get_user_id = async(req, res)=>{
+    console.log("requesttt session id = "+req.session.userID)
+    res.send({user_id: res.session.userID})
+
+    
 }
