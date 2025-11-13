@@ -2,7 +2,7 @@ import {all_products, product_by_category} from '../services/productServices.js'
 
 export const allProducts = async (req, res)=>{
 
-    try{
+    try{ 
         const result = await all_products();
         res.status(200).send(result);
     }catch(err){

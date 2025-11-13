@@ -13,7 +13,7 @@ export const all_products = async()=>{
     }catch(err){
         res.status(500).send(err);
     }
-}
+} 
 
 export const product_by_category = async(category)=>{
     try{
