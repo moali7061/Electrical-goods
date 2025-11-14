@@ -28,7 +28,7 @@ function Card(props) {
              });
 
              const data = await response.json();
-             alert(data.message.message +"the count is " + data.message.count);
+             alert(data.message.message);
              props.updateCount(product_id, data.message.count);  
              setAvailableCount(data.message.count); 
              setCount(0);             

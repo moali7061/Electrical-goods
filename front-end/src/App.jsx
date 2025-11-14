@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './Login'
 import Signup from './sign_up';
 import Change_password from './change_password';
+import Cart from './cart';
 
 function App(props) {
 
@@ -44,6 +45,8 @@ function App(props) {
         <Route path="/change_password" element={<Change_password/>} />
 
         <Route path="/listing" element={<List to_be_mapped={products}/>} />
+
+        <Route path='/view_cart' element={<Cart />}/>
 
       </Routes>
   </Router>

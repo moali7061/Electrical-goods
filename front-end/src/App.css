@@ -266,3 +266,49 @@ a{
   display: flex;
   flex-direction: row;
 }
+.x{}
+.cart_body {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: bisque;
+}
+
+.flexcell {
+  width: 100%;
+}
+
+.flex_grid {
+  width: 80%;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  display: grid;
+  row-gap: 8px;
+}
+
+/* Header */
+.table_header {
+  display: grid;
+  grid-template-columns: 100px 1fr 120px 80px 120px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  font-weight: bold;
+  border-bottom: 2px solid #aaa;
+}
+
+/* Each product row — THIS WAS THE PROBLEM */
+.one_product {
+  display: grid;
+  grid-template-columns: 100px 1fr 120px 80px 120px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.one_product > div {
+  display: flex;
+  align-items: center;
+}
+

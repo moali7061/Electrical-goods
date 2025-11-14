@@ -23,7 +23,7 @@ function List(props){
     p.price >= priceRange[0] && p.price <= priceRange[1]
   );
 
-  console.log("products here is" ,products);
+  //console.log("products here is" ,products);
     if(products.length >0){
       return (
         <div className="list_order">
