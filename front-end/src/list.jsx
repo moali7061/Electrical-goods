@@ -8,8 +8,16 @@ import { useState } from "react";
 function List(props){
   const location = useLocation(); 
   console.log("props haa", props.to_be_mapped); 
-  const products =  location.state?.products || props.to_be_mapped || [];
+  const [products, setProducts] =  useState(location.state?.products || props.to_be_mapped || []);
   const [priceRange, setPriceRange] = useState([0, 20000]);
+
+  const updateProductCountFrontend = (product_id, newCount) => {
+    setProducts(prev =>
+      prev.map(p =>
+        p.product_id === product_id ? { ...p, count: newCount } : p
+      )
+    );
+  };
 
   const filteredProducts = products.filter(p => 
     p.price >= priceRange[0] && p.price <= priceRange[1]
@@ -31,6 +39,7 @@ function List(props){
                 count={element.count}
                 price={element.price}
                 product_id={element.product_id}
+                updateCount={updateProductCountFrontend}
               />
             ))} 
           </div>

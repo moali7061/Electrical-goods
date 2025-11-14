@@ -19,5 +19,6 @@ export async function getProductByID(product_id){
 }
 
 export async function updateProductCount(product_id, count){
-    await db.query("insert into product (product_id, count) values($1, $2)",[product_id, count]);
+    await db.query("update product set count = $1 where product_id = $2",[count, product_id]);
+    console.log("counts updated successfully");
 }

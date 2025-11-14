@@ -4,6 +4,8 @@ import { useState } from "react";
 function Card(props) {
     const [count, setCount] = useState(0);
 
+    const [availableCount, setAvailableCount] = useState(props.count);
+
     const adding = async () => {
         console.log("added");
         console.log(props);
@@ -26,9 +28,13 @@ function Card(props) {
              });
 
              const data = await response.json();
-             alert(data.message);
+             alert(data.message.message +"the count is " + data.message.count);
+             props.updateCount(product_id, data.message.count);  
+             setAvailableCount(data.message.count); 
+             setCount(0);             
 
-             
+
+
          } catch (err) {
              console.error(err);
              alert("Error adding to cart");
@@ -36,12 +42,10 @@ function Card(props) {
     };
 
     const increment = () => {
-        if (count >= props.count) {
-            setCount(count); 
-        } else {
-            setCount(count + 1);
-        }
+        if (count >= availableCount) return;
+        setCount(count + 1);
     };
+
 
     const decrement = () => {
         if (count < 1) {
@@ -60,7 +64,9 @@ function Card(props) {
             />
             <h3>{props.product_name}</h3>
             <p>{props.description}</p>
-            <p>only {props.count} available</p>
+            <p style={{ color: availableCount <= 0 ||  availableCount<=10 ? 'red' : 'black', fontWeight: 'bold' }}>
+                {availableCount===0 || availableCount<0? 'not available':`only ${availableCount} available`}
+            </p>
             <p>price {props.price} L.E</p>
             <div className="button_and_counter">
                 <div className="in_button_and_counter">
