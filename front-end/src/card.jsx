@@ -9,18 +9,19 @@ function Card(props) {
         console.log(props);
 
         const product_id = props.product_id;
-
+        const price = props.price
          try {
             console.log(product_id);
-             const response = await fetch("http://localhost:3000/add_to_cart", {
+             const response = await fetch("http://localhost:3000/api/users/add_order", {
                  method: "POST",
+                 credentials: "include",
                  headers: {
                      "Content-Type": "application/json",
                  },
                  body: JSON.stringify({
-                     email: "moh",
                      product_id: product_id,
-                     count: count
+                     count: count,
+                     price_one: price
                  }),
              });
 

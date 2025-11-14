@@ -95,7 +95,7 @@ function Navbar(props){
                   </ul>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link disabled" aria-disabled="true">Disabled</a>
+                  <a className="nav-link" href="" value="">view cart</a>
                 </li>
               </ul>
               {/* <form className="d-flex" role="search">
