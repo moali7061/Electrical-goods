@@ -3,7 +3,6 @@ import {add_order_service} from "../services/orderService.js"
 export const add_order_controller = async(req, res)=>{
     try{
         const x = req.session.userId;
-        console.log("the x is "+ x);
         if(!x){
             return res.status(401).send({message:"you must login first"});
         }else{

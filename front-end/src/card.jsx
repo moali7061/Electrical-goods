@@ -27,6 +27,8 @@ function Card(props) {
 
              const data = await response.json();
              alert(data.message);
+
+             
          } catch (err) {
              console.error(err);
              alert("Error adding to cart");
