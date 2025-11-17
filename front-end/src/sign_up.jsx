@@ -7,7 +7,7 @@ function Signup(){
 const navigate = useNavigate();
 
     const go_to_home = ()=>{
-        navigate('/home');
+        navigate('/');
     }
  
   const signing_up_user = async () => {
@@ -60,17 +60,19 @@ const navigate = useNavigate();
     return(
         <div className="login_page">
             <div className="login_part1">
-                <h1 style={{fontSize: '200px', marginTop: '200px'}}>Sign Up</h1>
-                <div className="inputing_fields">
-                    <input style={{marginTop: '50px'}} placeholder="username" value={username} onChange={setting_the_username} required></input>
+                <div className='login_card'>
+                    <h4>Sign Up</h4>
+                    <div className="inputing_fields">
+                        <input placeholder="username" value={username} onChange={setting_the_username} className="line-input" required></input>
 
-                    <input placeholder="email" value={email} onChange={setting_the_email} required></input>
+                        <input placeholder="email" value={email} onChange={setting_the_email} className="line-input" required></input>
 
-                    <input placeholder="password" value={password} onChange={setting_the_pssword} required ></input>
+                        <input placeholder="password" value={password} onChange={setting_the_pssword} className="line-input" required ></input>
 
-                    <div className = 'two_buttons'>
-                        <button onClick={signing_up_user} style={{width:'300px', border:'solid black 2px', borderRadius: '20px'}} >Sign up</button>
-                        <button onClick={go_to_home} style={{width:'300px', border:'solid black 2px', borderRadius: '20px'}} >go to home page</button>
+                        <div className = 'two_buttons'>
+                            <button onClick={signing_up_user} style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', marginRight:'10px'}}>Sign up</button>
+                            <button onClick={go_to_home} style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px'}} >go to home page</button>
+                        </div>
                     </div>
                 </div>
             </div>

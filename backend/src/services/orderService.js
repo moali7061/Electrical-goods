@@ -1,4 +1,4 @@
-import {add_order, found_combination, updater, getProductByID, updateProductCount}from'../repositories/orderRepository.js'
+import {add_order, found_combination, updater, getProductByID, updateProductCount, get_Order}from'../repositories/orderRepository.js'
 
     
 
@@ -11,11 +11,11 @@ export const add_order_service = async(user_id, product_id, count, price_one)=>{
                 const datetime = new Date();
                 await add_order(user_id, product_id, quantity, datetime, price_one);
                 const product = await getProductByID(product_id);
-                console.log("count before = " + product.count);
+                //console.log("count before = " + product.count);
                 const newCount = product.count - quantity;
-                console.log("count after = " + newCount);
+                //console.log("count after = " + newCount);
                 await updateProductCount(product_id, newCount);
-                console.log("count updated");
+                //console.log("count updated");
                 return {
                     message: "order added successfully",
                     count: newCount
@@ -23,11 +23,11 @@ export const add_order_service = async(user_id, product_id, count, price_one)=>{
             }else{
                 const curr_count = x.quantity + quantity;
                 const product = await getProductByID(product_id);
-                console.log("count before = " + product.count);
+                //console.log("count before = " + product.count);
                 const newCount = product.count - quantity;
-                console.log("count after = " + newCount);
+                //console.log("count after = " + newCount);
                 await updateProductCount(product_id, newCount);
-                console.log("count updated");
+                //console.log("count updated");
                 await updater(curr_count, product_id, user_id);
 
                 return {
@@ -35,6 +35,27 @@ export const add_order_service = async(user_id, product_id, count, price_one)=>{
                     count: newCount
                 }
             }
+    }catch(err){
+        console.log(err);
+        throw(err);
+    }
+}
+
+
+export const get_Uorder = async(user_id)=>{
+    try{
+        const x = await get_Order(user_id);
+        console.log("the list in service is: ", x);
+        if(!x || x.length === 0){
+            return{
+                message:"user does not have products added to the cart"
+            };
+        }else{
+            return{
+                message: "user has products in the cart",
+                list_of_orders: x
+            };
+        }
     }catch(err){
         console.log(err);
         throw(err);

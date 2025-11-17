@@ -22,3 +22,10 @@ export async function updateProductCount(product_id, count){
     await db.query("update product set count = $1 where product_id = $2",[count, product_id]);
     console.log("counts updated successfully");
 }
+
+export async function get_Order(user_id){
+    
+    const list = await db.query("select * from orders as o INNER JOIN product as p on o.p_id = p.product_id where o.u_id = $1 ",[user_id]);
+    console.log("we are in the repository: ",list.rows);
+    return list.rows;
+}

@@ -1,4 +1,4 @@
-import {add_order_service} from "../services/orderService.js"
+import {add_order_service, get_Uorder} from "../services/orderService.js"
 
 export const add_order_controller = async(req, res)=>{
     try{
@@ -13,6 +13,28 @@ export const add_order_controller = async(req, res)=>{
         }
     }catch(err){
         console.log(err);
+        res.status(500).send(err);
+    }
+}
+
+export const get_user_order = async(req, res)=>{
+    try{
+        const x = req.session.userId;
+        const y = req.session.username;
+        if(!x){
+            return res.status(401).send({message:"you must login first"});
+        }else{
+            const result = await get_Uorder(x);
+            console.log("the list in controller : " , result);
+            return res.status(200).send({
+                username: y,
+                message:"correct",
+                list_of_results: result.list_of_orders
+            });
+            
+        }
+    }catch(err){
+        console.log("you are here" + err);
         res.status(500).send(err);
     }
 }

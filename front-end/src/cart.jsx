@@ -1,54 +1,60 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import {useState, useEffect} from "react";
 
 function Cart(props) {
 
-    const order_list = [
-        {
-            product_id: 1,
-            product_description: "elsewedy cable 1.5mm blue",
-            price_for_one: 1500,
-            count: 2,
-            total_price: 3000
-        },
-        {
-            product_id: 1,
-            product_description: "elsewedy cable 1.5mm blue",
-            price_for_one: 1500,
-            count: 2,
-            total_price: 3000
-        },
-        {
-            product_id: 1,
-            product_description: "elsewedy cable 1.5mm blue",
-            price_for_one: 1500,
-            count: 2,
-            total_price: 3000
+    const [thelist, setThelist] = useState([]);
+    const [u_username, setU_username] = useState("");
+
+    const get_products = async()=>{
+        try{
+            const response = await fetch('http://localhost:3000/api/users/get_order',{
+                method: 'GET',
+                credentials: 'include'
+            });
+
+            const data = await response.json();
+
+            if(data.message ==="correct"){
+                setThelist(data.list_of_results);
+                setU_username(data.username);
+            }
+            else{
+                alert (data.message);
+            }
+        }catch(err){
+            
         }
-    ];
+    };
+
+    useEffect(()=>{
+        get_products();
+    },[]);
 
     return (
         <>
             <div className="cart_body">
                 
-                <h3 className="flexcell">{props.username}'s cart</h3>
+                <h3 className="flexcell">{u_username}'s cart</h3>
 
                 <div className="flexcell flex_grid">
                     
                     <div className="table_header">
                         <div>ID</div>
+                        <div>category</div>
                         <div>Description</div>
                         <div>Price</div>
                         <div>Count</div>
                         <div>Total</div>
                     </div>
 
-                    {order_list.map((element, index) => (
+                    {thelist.map((element, index) => (
                         <div key={index} className="one_product">
-                            <div>{element.product_id}</div>
-                            <div>{element.product_description}</div>
-                            <div>{element.price_for_one}</div>
-                            <div>{element.count}</div>
+                            <div>{element.p_id}</div>
+                            <div>{element.product_name}</div>
+                            <div>{element.description}</div>
+                            <div>{element.price}</div>
+                            <div>{element.quantity}</div>
                             <div>{element.total_price}</div>
                         </div>
                     ))}
