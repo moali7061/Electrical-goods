@@ -25,6 +25,11 @@ const navigate = useNavigate();
             console.log("the text is",text);
             console.log(text.message);
 
+            if (!response.ok) {
+              alert(text.message);
+                return;
+            }
+
             if(text.message === 'created')
                 {
                     alert('user created successfully \n go to home page to login');

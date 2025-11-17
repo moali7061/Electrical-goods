@@ -5,6 +5,19 @@ import nodemailer from 'nodemailer';
 export const signUpUser = async(req, res)=>{
     try{
         const {username, email, password} = req.body;
+
+        if (!username || !username.trim()) {
+            return res.status(400).json({ message: "You did not enter username" });
+        }
+
+        if (!email || !email.trim()) {
+            return res.status(400).json({ message: "You did not enter email" });
+        }
+
+        if (!password || !password.trim()) {
+            return res.status(400).json({ message: "You did not enter password" });
+        }
+
         const result = await registerUser(username, email, password);
         if(result =="created"){
             const transporter = nodemailer.createTransport({
@@ -53,6 +66,13 @@ export const changePassword = async(req, res)=>{
 export const login = async(req, res)=>{
     try{
         const {email, password}= req.body;
+        if (!email || !email.trim()) {
+            return res.status(400).json({ message: "You did not enter email" });
+        }
+
+        if (!password || !password.trim()) {
+            return res.status(400).json({ message: "You did not enter password" });
+        }
         const result = await login_user(email, password);
         const user = await findByEmail(email)
         if (result==="correct") {

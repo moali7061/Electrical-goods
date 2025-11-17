@@ -30,9 +30,9 @@ function Home_page() {
         <div className='section_1'>
           <h1 className='the_description'>BUY<br/>ALL YOUR<br/>FURNITURE<br/>WITH THE BEST<br/>DEALS EVER</h1>
           <div className = 'home_page_buttons'>
-            <button className='Home_page_button' onClick={go_to_sign_up}>sign up</button>
-            <button className='Home_page_button' onClick={go_to_login}>Login</button>
-            <button className='Home_page_button' onClick={go_to_change_password}>change password</button>
+            <button className='Home_page_button' style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}} onClick={go_to_sign_up}>sign up</button>
+            <button className='Home_page_button' style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}} onClick={go_to_login}>Login</button>
+            <button className='Home_page_button' style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}} onClick={go_to_change_password}>change password</button>
           </div>
         </div>
 

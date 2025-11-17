@@ -90,8 +90,7 @@ html, body, #root {
   border-radius: 4%;
   width: 100px;
   display: flex;
-  margin-left: 30px;
-  color: lightgreen;
+  margin-left: 5px;
   opacity:0.8;
   filter:alpha(opacity=30);
 
@@ -232,7 +231,7 @@ input::placeholder {
   flex-direction: column;
   margin-right: 700px;
   margin-top: 400px;
-  gap: 10px;
+  gap: 5px;
 
 }
 
@@ -292,7 +291,7 @@ input::placeholder {
 }
 
 .change_password {
-  background-image: url('./assets/slide_2.jpg');
+  background-image: url('./assets/new_design.jpg');
   background-size: cover;        
   background-position: center;
   background-repeat: no-repeat;

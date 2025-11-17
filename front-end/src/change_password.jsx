@@ -44,13 +44,18 @@ function Change_password(){
 
     return(
         <div className="change_password" >
-            <div className="inputing_fields">
-                <input placeholder="email" value={email} onChange={setting_the_email} required></input>
-                <input placeholder="old password" value={oldpassword} onChange={setting_the_oldpassword}></input>
-                <input placeholder="new password" value={newpassword} onChange={setting_the_newpassword} required></input>
-                <div className="buttons_in_row">
-                    <button className="Home_page_button" onClick={change_the_password}>change password</button>
-                    <button className="Home_page_button" onClick={go_to_home_page}>go to home</button>
+            <div className='login_card'>
+                <div>
+                    <h4>change password</h4>
+                </div>
+                <div className="inputing_fields">
+                    <input placeholder="email" value={email} onChange={setting_the_email} className="line-input" required></input>
+                    <input placeholder="old password" value={oldpassword} onChange={setting_the_oldpassword} className="line-input" ></input>
+                    <input placeholder="new password" value={newpassword} onChange={setting_the_newpassword} className="line-input" required></input>
+                    <div className="buttons_in_row">
+                        <button style={{width:'100px', border:'solid black 2px', borderRadius: '20px', marginRight: '10px', fontSize:'10px'}} onClick={change_the_password}>change password</button>
+                        <button style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px'}} onClick={go_to_home_page}>home page</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -17,7 +17,10 @@ const navigate = useNavigate();
       })
       const text = await response.json();
 
-      
+      if (!response.ok) {
+        alert(text.message);
+        return;
+      }
       if (text.message === 'correct') {
       navigate('/listing'); 
     } else if (text.message === 'not_correct') {
