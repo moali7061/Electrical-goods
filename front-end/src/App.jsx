@@ -8,6 +8,7 @@ import Login from './Login'
 import Signup from './sign_up';
 import Change_password from './change_password';
 import Cart from './cart';
+import User_info_to_pay from './user-info_to_pay';
 
 function App(props) {
 
@@ -48,6 +49,7 @@ function App(props) {
 
         <Route path='/view_cart' element={<Cart />}/>
 
+        <Route path='/payment_details' element={<User_info_to_pay/>}/>
       </Routes>
   </Router>
   )

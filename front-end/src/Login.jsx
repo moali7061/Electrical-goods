@@ -56,7 +56,7 @@ const navigate = useNavigate();
                     <input placeholder="email" value={email} onChange={setting_the_email} className="line-input" required></input>
                     <input placeholder="password" value={password} onChange={setting_the_pssword} className="line-input" required></input>
                 </div>
-                    <div><button style={{width:'150px', border:'solid black 2px', borderRadius: '20px'}} onClick={go_to_products}>Go to website</button></div>
+                    <div><button style={{width:'150px', border:'solid black 2px', borderRadius: '20px'}} onClick={go_to_products}>Go Shopping</button></div>
                </div> 
             </div>
         </div>

@@ -2,11 +2,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
-import slide_1 from './assets/slide_1.png'
-import slide_2 from './assets/slide10.jpg'
-import slide_4 from './assets/slide_4.jpg'
-import slide6 from './assets/slide11.jpg'
-import slide7 from './assets/slide7.jpg'
+import slide_1 from './assets/test1.png'
+import slide_2 from './assets/test2.png'
+import slide_3 from './assets/test3.png'
+import slide_4 from './assets/test4.png'
+import slide_5 from './assets/test5.png'
 import better from './assets/better_furniture.png'
 
 function Home_page() {
@@ -28,18 +28,18 @@ function Home_page() {
     <>
       <Navbar type='home'/>
         <div className='section_1'>
-          <h1 className='the_description'>BUY<br/>ALL YOUR<br/>FURNITURE<br/>WITH THE BEST<br/>DEALS EVER</h1>
+          <h1 className='the_description'>BUY<br/>ALL YOUR<br/>FURNITURE<br/>WITH THE BEST<br/>PRICES EVER</h1>
           <div className = 'home_page_buttons'>
             <button className='Home_page_button' style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}} onClick={go_to_sign_up}>sign up</button>
             <button className='Home_page_button' style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}} onClick={go_to_login}>Login</button>
             <button className='Home_page_button' style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}} onClick={go_to_change_password}>change password</button>
           </div>
         </div>
-
-
+        <hr/>
         <div className='section_2'>
            <div className='slide_bar'>
 
+              
               <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
@@ -49,13 +49,13 @@ function Home_page() {
                     <img src={slide_2} class="d-block w-100" alt="" className='slide_bar_image'/>
                   </div>
                   <div class="carousel-item">
+                    <img src={slide_3} class="d-block w-100" alt="" className='slide_bar_image'/>
+                  </div>
+                  <div class="carousel-item">
                     <img src={slide_4} class="d-block w-100" alt="" className='slide_bar_image'/>
                   </div>
                   <div class="carousel-item">
-                    <img src={slide6} class="d-block w-100" alt="" className='slide_bar_image'/>
-                  </div>
-                  <div class="carousel-item">
-                    <img src={slide7} class="d-block w-100" alt="" className='slide_bar_image'/>
+                    <img src={slide_5} class="d-block w-100" alt="" className='slide_bar_image'/>
                   </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">

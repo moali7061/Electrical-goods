@@ -1,11 +1,15 @@
 import PropTypes from "prop-types";
 import {useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 
 function Cart(props) {
 
     const [thelist, setThelist] = useState([]);
     const [u_username, setU_username] = useState("");
 
+    const navigate = useNavigate();
+
+    const go = ()=>{navigate('/payment_details')};
     const get_products = async()=>{
         try{
             const response = await fetch('http://localhost:3000/api/users/get_order',{
@@ -62,7 +66,7 @@ function Cart(props) {
                 </div>
 
                 <div className="flexcell">
-                    <button>Proceed to Checkout</button>
+                    <button onClick={go}>Proceed to Checkout</button>
                 </div>
 
             </div>
