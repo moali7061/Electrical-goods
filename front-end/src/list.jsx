@@ -3,6 +3,7 @@ import Card from "./card";
 import Navbar from "./Navbar";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useEffect } from "react";
 
  
 function List(props){
@@ -23,6 +24,9 @@ function List(props){
     p.price >= priceRange[0] && p.price <= priceRange[1]
   );
 
+  useEffect(() => {
+      setProducts(location.state?.products || props.to_be_mapped);
+    }, []);
   //console.log("products here is" ,products);
     if(products.length >0){
       return (

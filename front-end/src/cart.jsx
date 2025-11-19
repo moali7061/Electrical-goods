@@ -10,6 +10,7 @@ function Cart(props) {
     const navigate = useNavigate();
 
     const go = ()=>{navigate('/payment_details')};
+    const back = ()=>{navigate('/listing')}
     const get_products = async()=>{
         try{
             const response = await fetch('http://localhost:3000/api/users/get_order',{
@@ -64,9 +65,10 @@ function Cart(props) {
                     ))}
 
                 </div>
-
+{/* className='Home_page_button' style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}} */}
                 <div className="flexcell">
-                    <button onClick={go}>Proceed to Checkout</button>
+                    <button onClick={back}  style={{marginRight:'auto', marginLeft:'auto',width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}}>go back</button>
+                    <button onClick={go} style={{marginRight:'auto', marginLeft:'auto',width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}}>Proceed to Checkout</button>
                 </div>
 
             </div>

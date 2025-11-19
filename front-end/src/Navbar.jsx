@@ -29,6 +29,7 @@ function Navbar(props){
       })
       const data = await response.json();
       const products = data;
+      //console.log("the products here is ",products);
       if(products){
           setProducts(products);
           navigate("/listing", {state:{products: products}});
@@ -67,7 +68,7 @@ function Navbar(props){
     }
   }
     return(<>
-    <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+    <nav className="navbar navbar-expand-lg fixed-top" style={{backgroundColor:"white", maxHeight:'55px', width: '100%'}}>
           <div className="container-fluid">
             <a className="navbar-brand" >Habib lightning</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

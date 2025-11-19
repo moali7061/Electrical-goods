@@ -2,12 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
-import slide_1 from './assets/test1.png'
-import slide_2 from './assets/test2.png'
-import slide_3 from './assets/test3.png'
-import slide_4 from './assets/test4.png'
-import slide_5 from './assets/test5.png'
-import better from './assets/better_furniture.png'
+import {Carousel} from './carousel';
+import {slides} from "./data/carouseldata.json"
+
 
 function Home_page() {
 
@@ -26,78 +23,74 @@ function Home_page() {
   }
   return (
     <>
+    <header>
       <Navbar type='home'/>
+    </header>
         <div className='section_1'>
-          <h1 className='the_description'>BUY<br/>ALL YOUR<br/>FURNITURE<br/>WITH THE BEST<br/>PRICES EVER</h1>
-          <div className = 'home_page_buttons'>
+          <h1 className='the_description'>BUY ALL YOUR<br/>FURNITURE WITH<br/> THE BEST PRICES<br/>EVER</h1>
+          {/* <div className = 'home_page_buttons'>
             <button className='Home_page_button' style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}} onClick={go_to_sign_up}>sign up</button>
             <button className='Home_page_button' style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}} onClick={go_to_login}>Login</button>
             <button className='Home_page_button' style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}} onClick={go_to_change_password}>change password</button>
-          </div>
+          </div> */}
         </div>
-        <hr/>
+
         <div className='section_2'>
-           <div className='slide_bar'>
+            <h1>categories</h1>
 
-              
-              <div id="carouselExample" class="carousel slide">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src={slide_1} class="d-block w-100" alt="" className='slide_bar_image'/>
-                  </div>
-                  <div class="carousel-item">
-                    <img src={slide_2} class="d-block w-100" alt="" className='slide_bar_image'/>
-                  </div>
-                  <div class="carousel-item">
-                    <img src={slide_3} class="d-block w-100" alt="" className='slide_bar_image'/>
-                  </div>
-                  <div class="carousel-item">
-                    <img src={slide_4} class="d-block w-100" alt="" className='slide_bar_image'/>
-                  </div>
-                  <div class="carousel-item">
-                    <img src={slide_5} class="d-block w-100" alt="" className='slide_bar_image'/>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
+        </div>
+
+            <div className='section_3_new'>
+              <div style={{display:'inline-block', width: '550px'}}>
+                <h1 style={{display:'flex', width:'50%' , marginRight:'auto', marginLeft:'auto', fontSize:'50px'}}>ABOUT US</h1>
+                <p style={{display:'inline-block',fontSize:'30px', marginLeft:'100px', width:'600px'}}>
+                  Habib Lightning is a leading provider of<br/>
+                  lightning solutions for both residential<br/>
+                  and commercial spaces. With a wide <br/>
+                  range of products from stylish<br/>
+                  Chandeliers to practical floor lamps,<br/>
+                  we are dedicated to illuminating <br/>
+                  homes and businesses with quality<br/>
+                  lightning products. Our commitment<br/>
+                  to customer satisfaction and innoative<br/>
+                  design sets us apart in the lightning<br/>
+                  industry.
+                </p>
               </div>
+              
+              <div style={{display:'inline-block', paddingLeft:'400px'}}>
+                <Carousel data = {slides}/>
+              </div>
+              <hr/>
+              <footer>
+              
+                <div className="footer_element" id="contact">
+                    <h5 className='footer_icon'>Contact Us</h5>
+                    ✉️<a href="">email</a>
+                    <p style={{marginBottom:'0px'}}>📞01158281903</p>
+                    <p style={{marginBottom:'0px'}}>📞01158281903</p>
+                    <p>📞01158281903</p>
+                    
 
-           </div>
-
-        </div>
-
-
-
-
-        
-        <div className='section_3'>
-                <div>  
-                  <h1 className='first_part'>About US</h1>
-                    <div className='contact_us_tabel'>
-                      <h1>How to reach me?</h1>
-                      <h3>Personal email?</h3><p><a href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCJqXxbvQwXLSXBnGdKFmrNDdbWVVdStTprnCBRTLGCxpczJcPswcpQmsfxMKzJJgLJHCPmL'>moh.ali6066@gmail.com</a></p>
-                      <h3>University email</h3><p><a href='https://mail.google.com/mail/u/0/#inbox?compose=CllgCJqXxbvQwXLSXBnGdKFmrNDdbWVVdStTprnCBRTLGCxpczJcPswcpQmsfxMKzJJgLJHCPmL'>mohamed.alysoliman@student.guc.edu.eg</a></p>
-                      <h3>Linked in Account</h3><p><a href='https://www.linkedin.com/in/mohamed-aly-6b7a32200/'>Linked In</a></p>
-                    <div/>
-                  </div>
-                  <div className='second_part'>
-                     <h1 style={{color: 'green'}}>About me</h1>I am engineering student at the German university in cairo. Passionate about Learning new technologies.
-                      I did more than one intership in different companies Like: <li><a href='https://iskraemeco.com/'><b>Elsewedy electric</b></a> as a software tester 
-                      engineer for two weeks</li> <li>3 Months in <b><a href='https://www.orange-business.com/en'>Orange business service</a></b> as a cloud engineer</li>  
-                      <li>1 month in <b><a href='https://www.linkedin.com/company/edgeconn/posts/?feedView=all'>Edgeconn</a></b> as a network engineer</li>
-                  </div>
-                  <div>
-                    <img src={better} className="better_image"/>
-                  </div>
+                    
                 </div>
+                <div className="footer_element">
+                  <h5 className='footer_icon' style={{marginBottom:'30px'}}>Branches</h5>
+                  📍<a href="https://www.google.com/maps/place/Habib+Lighting/@30.0141921,31.282819,17z/data=!3m1!4b1!4m6!3m5!1s0x1458390003e29265:0xcb1cdcf7c806b2a6!8m2!3d30.0141921!4d31.2853939!16s%2Fg%2F11x6cjwd5b?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D">Ataba branch</a><br/>
+                  📍<a href="https://www.google.com/maps/place/Habib+Lighting/@30.0408301,31.1978787,17z/data=!3m1!4b1!4m6!3m5!1s0x145846cc908a2bfb:0x243aca3a2af064cf!8m2!3d30.0408301!4d31.2004536!16s%2Fg%2F11c5_1rpd7?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D">Mohandessin branch</a><br/> 
+                  📍<a href="https://www.google.com/maps/place/Habib+Lighting/@30.0408301,31.1978787,17z/data=!3m1!4b1!4m6!3m5!1s0x145846cc908a2bfb:0x243aca3a2af064cf!8m2!3d30.0408301!4d31.2004536!16s%2Fg%2F11c5_1rpd7?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D">Mokattam branch</a>
+                </div>
+                <div className="footer_element">
+                  <h5 className='footer_icon'>About</h5>
+                  <a href=""><h5>about</h5></a>
+                  <p>‎‎ </p>
+                  <p>‎‎ </p>
+                </div>
+              </footer>
+            </div>
+        
+        
 
-        </div>
     </>
   );
 }

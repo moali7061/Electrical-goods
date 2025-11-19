@@ -25,7 +25,7 @@ export const get_user_order = async(req, res)=>{
             return res.status(401).send({message:"you must login first"});
         }else{
             const result = await get_Uorder(x);
-            console.log("the list in controller : " , result);
+            //console.log("the list in controller : " , result);
             return res.status(200).send({
                 username: y,
                 message:"correct",

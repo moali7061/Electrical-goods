@@ -45,7 +45,7 @@ export const add_order_service = async(user_id, product_id, count, price_one)=>{
 export const get_Uorder = async(user_id)=>{
     try{
         const x = await get_Order(user_id);
-        console.log("the list in service is: ", x);
+        //console.log("the list in service is: ", x);
         if(!x || x.length === 0){
             return{
                 message:"user does not have products added to the cart"

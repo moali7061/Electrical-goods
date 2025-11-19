@@ -4,9 +4,12 @@ function User_info_to_pay(){
 
     return(
         <div className="section_1">
-            <div className="login_card">
-                <input placeholder="please enter your phone number"/><br/>
-                <input placeholder="please input your address"/>
+            <h5>payment</h5>
+            
+            <div className="">
+                <input placeholder="please enter your address"/><br/>
+                <p>will add the map here</p>
+                <input placeholder="please input your phone"/>
             </div>
         </div>
     );
