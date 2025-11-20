@@ -37,7 +37,7 @@
   align-items: center;
   justify-content: center;
 
-  width: 1690px;
+  width: 1687px;
   height: 100vh;
 
   background-image: url('./assets/slide_2.jpg');
@@ -46,10 +46,23 @@
   background-size: cover;      /* scale image to fill */
 }
 
+.section_2{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  background-color: white;
+  margin-top: 10px;
+}
 
+.grid_cell{
+  width: 300px;
+  height: 300px;
+  margin-left: 10px;
+  margin-bottom: 40px;
+}
 
 .section_3_new{
-  width: 100%;
+  width: 1680px;
   display: inline-block;
 }
 
@@ -57,6 +70,8 @@
 
 html, body, #root {
   margin: 0;
+  background-color: white;
+  height: auto;
 }
 
 
@@ -152,6 +167,45 @@ a{
   justify-content: center;   
   align-items: center;       
   text-align: center; 
+}
+
+.login_signup{
+  width: 1704px;
+  height: 779px;
+  background-repeat: no-repeat;
+  background-image: url('./assets/new_design.jpg');
+  background-size: cover;       
+  background-position: center;   
+  background-repeat: no-repeat;
+
+}
+
+.login_signup_card{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  min-width: 200px;
+  border-radius: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(58, 52, 52, 0.85);
+  padding: 20px;
+  align-items: center;
+}
+
+.login_signup_button{
+  width: 100px;
+  display: flex;
+  flex-direction: row;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+  border: 'solid 2px black ';
+  border-radius: 10px;
 }
 
 .line-input {
@@ -433,8 +487,9 @@ input::placeholder {
 
 .footer_element{ 
   display: inline-block; 
-  width: 200px; 
-  margin-right: 10px; 
+  width: 200px;
+  margin-left: 100px; 
+  margin-right: 100px; 
 } 
 
 .footer_icon{ 

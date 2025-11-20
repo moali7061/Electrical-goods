@@ -4,7 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import {Carousel} from './carousel';
 import {slides} from "./data/carouseldata.json"
-
+import lamp from"./assets/lamp.png"
+import spot from "./assets/spot.png"
+import led from './assets/led_light_strip.png'
+import khartoom from"./assets/khartoom.png"
+import ceiling_spot from './assets/ceiling_spot.png';
+import wall_applique from './assets/wall_applique.png';
+import chandelier from './assets/chandelier.png';
+import cable from './assets/cable.png';
+import sanshe_sharm from './assets/sanshe_sharm.png'
 
 function Home_page() {
 
@@ -22,7 +30,7 @@ function Home_page() {
     navigate('/change_password');
   }
   return (
-    <>
+    <body>
     <header>
       <Navbar type='home'/>
     </header>
@@ -36,8 +44,15 @@ function Home_page() {
         </div>
 
         <div className='section_2'>
-            <h1>categories</h1>
-
+           <a href="" style={{width:'364px', height:'348px'}}><img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}} onClick={go_to_login} src={lamp}/></a>
+           <a href="" style={{width:'364px', height:'348px'}}><img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}} onClick={go_to_login} src={spot}/></a>
+           <img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}}  src={led}/>
+           <img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}}  src={khartoom}/>
+           <img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}}  src={ceiling_spot}/>
+           <img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}}  src={wall_applique}/>
+           <img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}}  src={chandelier}/>
+           <img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}}  src={cable}/>
+           <img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}}  src={sanshe_sharm}/>
         </div>
 
             <div className='section_3_new'>
@@ -81,17 +96,25 @@ function Home_page() {
                   📍<a href="https://www.google.com/maps/place/Habib+Lighting/@30.0408301,31.1978787,17z/data=!3m1!4b1!4m6!3m5!1s0x145846cc908a2bfb:0x243aca3a2af064cf!8m2!3d30.0408301!4d31.2004536!16s%2Fg%2F11c5_1rpd7?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D">Mokattam branch</a>
                 </div>
                 <div className="footer_element">
-                  <h5 className='footer_icon'>About</h5>
-                  <a href=""><h5>about</h5></a>
+                  <h5 className='footer_icon'>About Us</h5>
+                  <a href="">about</a>
                   <p>‎‎ </p>
                   <p>‎‎ </p>
+                </div>
+
+                <div className="footer_element">
+                  <h5 className='footer_icon'>Products</h5>
+                  <a href="">lamps</a><br/>
+                  <a href="">chandeliers</a><br/>
+                  <a href="">spots</a><br/>
+                  <a href="">cables</a>
                 </div>
               </footer>
             </div>
         
         
 
-    </>
+    </body>
   );
 }
 

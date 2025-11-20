@@ -20,6 +20,10 @@ function Navbar(props){
     } 
   };
 
+  const go_to_page = ()=>{
+    navigate("/login_signup");
+  };
+
 
   async function all_products(event){
     try{
@@ -103,7 +107,7 @@ function Navbar(props){
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                 <button className="btn btn-outline-success" type="submit">Search</button>
               </form> */}
-            {props.type!=="home" && <RangeSlider onRangeChange={handleSliderChange}/>}
+            {props.type!=="home"? (<RangeSlider onRangeChange={handleSliderChange}/>):(<button onClick={go_to_page}>login/sign up</button>)};
             </div>
       </div>
       </nav>
