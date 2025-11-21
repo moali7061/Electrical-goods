@@ -37,7 +37,7 @@
   align-items: center;
   justify-content: center;
 
-  width: 1687px;
+  width: 100%;
   height: 100vh;
 
   background-image: url('./assets/slide_2.jpg');
@@ -62,7 +62,7 @@
 }
 
 .section_3_new{
-  width: 1680px;
+  /* width: 1680px; */
   display: inline-block;
 }
 
@@ -72,6 +72,7 @@ html, body, #root {
   margin: 0;
   background-color: white;
   height: auto;
+  /* overflow-x: hidden; */
 }
 
 
@@ -482,15 +483,20 @@ input::placeholder {
 
 
 .footer{
-  display: inline-block; 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 50px; 
+  
 } 
 
-.footer_element{ 
-  display: inline-block; 
+.footer_element{  
+  display: inline-block;
   width: 200px;
+  margin-right: 100px;
   margin-left: 100px; 
-  margin-right: 100px; 
 } 
+
+
 
 .footer_icon{ 
   position: relative; 
@@ -499,3 +505,21 @@ input::placeholder {
 
 
 
+.Payment_page{
+  display: flex;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.payment_grid{
+  display: grid;
+  grid-template-columns: 500px 500px;
+  grid-template-rows: 500px;
+}
+
+.paymen_grid_cell{
+  background-color: #555;
+  width: 500px;
+  height: 500px;
+}

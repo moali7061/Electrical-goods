@@ -25,8 +25,10 @@ function List(props){
   );
 
   useEffect(() => {
-      setProducts(location.state?.products || props.to_be_mapped);
-    }, []);
+    if (location.state?.products) {
+      setProducts(location.state.products);
+    }
+  }, [location.state?.products]);
   //console.log("products here is" ,products);
     if(products.length >0){
       return (

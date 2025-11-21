@@ -1,15 +1,25 @@
+import { BsPhone } from "react-icons/bs";
 
 
 function User_info_to_pay(){
 
     return(
-        <div className="section_1">
-            <h5>payment</h5>
-            
-            <div className="">
-                <input placeholder="please enter your address"/><br/>
-                <p>will add the map here</p>
-                <input placeholder="please input your phone"/>
+        <div className="Payment_page">
+            <div className="payment_grid">
+                <p className="paymen_grid_cell">
+                    <div>
+                        <input placeholder="name"></input>
+                        <input placeholder="phone number"></input>
+                    </div>
+                    <div>
+                        <input placeholder="address"></input>
+                    </div>
+                    <div>
+                        <input placeholder="building/house number"></input>
+                        <input placeholder="floor"></input>
+                    </div>
+                </p>
+                <p className="paymen_grid_cell">hala</p>
             </div>
         </div>
     );

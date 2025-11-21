@@ -95,15 +95,15 @@ function Home_page() {
                   📍<a href="https://www.google.com/maps/place/Habib+Lighting/@30.0408301,31.1978787,17z/data=!3m1!4b1!4m6!3m5!1s0x145846cc908a2bfb:0x243aca3a2af064cf!8m2!3d30.0408301!4d31.2004536!16s%2Fg%2F11c5_1rpd7?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D">Mohandessin branch</a><br/> 
                   📍<a href="https://www.google.com/maps/place/Habib+Lighting/@30.0408301,31.1978787,17z/data=!3m1!4b1!4m6!3m5!1s0x145846cc908a2bfb:0x243aca3a2af064cf!8m2!3d30.0408301!4d31.2004536!16s%2Fg%2F11c5_1rpd7?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D">Mokattam branch</a>
                 </div>
-                <div className="footer_element">
+                <div className="footer_element" style={{marginRight:'0px'}}>
                   <h5 className='footer_icon'>About Us</h5>
                   <a href="">about</a>
                   <p>‎‎ </p>
                   <p>‎‎ </p>
                 </div>
 
-                <div className="footer_element">
-                  <h5 className='footer_icon'>Products</h5>
+                <div className="footer_element" style={{marginRight:'120px'}}>
+                  <h5 className='footer_icon'>Some Products</h5>
                   <a href="">lamps</a><br/>
                   <a href="">chandeliers</a><br/>
                   <a href="">spots</a><br/>
