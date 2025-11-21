@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
+import "./card.css"
+
 function Card(props) {
     const [count, setCount] = useState(0);
 

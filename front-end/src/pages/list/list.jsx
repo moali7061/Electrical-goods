@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
-import Card from "./card";
-import Navbar from "./Navbar";
+import Card from "../../components/card/card.jsx";
+import Navbar from "../../components/navbar/Navbar.jsx";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 
+import "./list.css"
  
 function List(props){
   const location = useLocation(); 

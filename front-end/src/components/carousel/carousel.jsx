@@ -1,14 +1,15 @@
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import { useState } from "react";
-import slide_1 from "./assets/test1.png"
-import slide_2 from "./assets/test2.png"
-import slide_3 from "./assets/test3.png"
-import slide_4 from "./assets/test4.png"
-import slide_5 from "./assets/test5.png"
-import slide_6 from "./assets/test6.png"
-import slide_7 from "./assets/test7.png"
-import slide_8 from "./assets/test8.png"
+import slide_1 from "../../assets/test1.png"
+import slide_2 from "../../assets/test2.png"
+import slide_3 from "../../assets/test3.png"
+import slide_4 from "../../assets/test4.png"
+import slide_5 from "../../assets/test5.png"
+import slide_6 from "../../assets/test6.png"
+import slide_7 from "../../assets/test7.png"
+import slide_8 from "../../assets/test8.png"
 
+import "./carousel.css"
 
 export function Carousel  (props){
     const list = [

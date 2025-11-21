@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import './App.css'
-import List from './list';
-import Home_page from './Home_page';
+import List from './pages/list/list.jsx';
+import Home_page from './pages/home/Home_page.jsx';
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './Login'
-import Signup from './sign_up';
-import Change_password from './change_password';
-import Cart from './cart';
-import User_info_to_pay from './user-info_to_pay';
-import Login_signup_changePassword from './login_signup_changePasswpord';
+import Login from './pages/login/Login'
+import Signup from './pages/sign_up/sign_up';
+import Change_password from './pages/change password/change_password';
+import Cart from './pages/cart/cart';
+import User_info_to_pay from './pages/user_info_to_pay/user-info_to_pay';
+import Login_signup_changePassword from './pages/login_signup/login_signup_changePasswpord';
 
 
 function App(props) {

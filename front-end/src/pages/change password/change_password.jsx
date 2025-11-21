@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import "./change_password.css"
 
 function Change_password(){
 

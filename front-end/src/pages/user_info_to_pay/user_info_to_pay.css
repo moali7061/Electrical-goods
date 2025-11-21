@@ -1,0 +1,18 @@
+.Payment_page{
+  display: flex;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.payment_grid{
+  display: grid;
+  grid-template-columns: 500px 500px;
+  grid-template-rows: 500px;
+}
+
+.paymen_grid_cell{
+  background-color: #555;
+  width: 500px;
+  height: 500px;
+}

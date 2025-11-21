@@ -1,18 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { useNavigate } from 'react-router-dom';
-import Navbar from './Navbar';
-import {Carousel} from './carousel';
-import {slides} from "./data/carouseldata.json"
-import lamp from"./assets/lamp.png"
-import spot from "./assets/spot.png"
-import led from './assets/led_light_strip.png'
-import khartoom from"./assets/khartoom.png"
-import ceiling_spot from './assets/ceiling_spot.png';
-import wall_applique from './assets/wall_applique.png';
-import chandelier from './assets/chandelier.png';
-import cable from './assets/cable.png';
-import sanshe_sharm from './assets/sanshe_sharm.png'
+import Navbar from '../../components/navbar/Navbar.jsx';
+import {Carousel} from '../../components/carousel/carousel.jsx';
+import {slides} from "../../data/carouseldata.json"
+import lamp from "../../assets/lamp.png"
+import spot from "../../assets/spot.png"
+import led from '../../assets/led_light_strip.png'
+import khartoom from"../../assets/khartoom.png"
+import ceiling_spot from '../../assets/ceiling_spot.png';
+import wall_applique from '../../assets/wall_applique.png';
+import chandelier from '../../assets/chandelier.png';
+import cable from '../../assets/cable.png';
+import sanshe_sharm from '../../assets/sanshe_sharm.png'
+
+import "./home_page.css";
 
 function Home_page() {
 
@@ -36,11 +38,6 @@ function Home_page() {
     </header>
         <div className='section_1'>
           <h1 className='the_description'>BUY ALL YOUR<br/>FURNITURE WITH<br/> THE BEST PRICES<br/>EVER</h1>
-          {/* <div className = 'home_page_buttons'>
-            <button className='Home_page_button' style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}} onClick={go_to_sign_up}>sign up</button>
-            <button className='Home_page_button' style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}} onClick={go_to_login}>Login</button>
-            <button className='Home_page_button' style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}} onClick={go_to_change_password}>change password</button>
-          </div> */}
         </div>
 
         <div className='section_2'>

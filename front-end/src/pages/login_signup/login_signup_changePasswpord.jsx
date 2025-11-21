@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
+import "./login_signup.css"
+
     function Login_signup_changePassword(){
 
     const navigate= useNavigate();

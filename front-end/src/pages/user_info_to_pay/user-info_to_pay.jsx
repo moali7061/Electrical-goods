@@ -1,5 +1,6 @@
 import { BsPhone } from "react-icons/bs";
 
+import "./User_info_to_pay.css"
 
 function User_info_to_pay(){
 

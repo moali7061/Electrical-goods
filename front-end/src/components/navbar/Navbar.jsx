@@ -1,7 +1,7 @@
 import { useState } from "react";
-import List from "./list";
+import List from "../../pages/list/list.jsx";
 import { useNavigate } from "react-router-dom";
-import RangeSlider from '../src/slider.jsx';
+import RangeSlider from '../slider/slider.jsx';
 import PropTypes from "prop-types";
 
 function Navbar(props){

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import "./sign_up.css"
 
 function Signup(){
 
@@ -83,8 +84,7 @@ const navigate = useNavigate();
             </div>
 
 
-            <div className="login_part2">
-            </div>
+            
         </div>
     );
 }

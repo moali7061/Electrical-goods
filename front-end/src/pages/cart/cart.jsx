@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 
+import "./cart.css"
+
 function Cart(props) {
 
     const [thelist, setThelist] = useState([]);
@@ -65,7 +67,6 @@ function Cart(props) {
                     ))}
 
                 </div>
-{/* className='Home_page_button' style={{width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}} */}
                 <div className="flexcell">
                     <button onClick={back}  style={{marginRight:'auto', marginLeft:'auto',width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}}>go back</button>
                     <button onClick={go} style={{marginRight:'auto', marginLeft:'auto',width:'100px', border:'solid black 2px', borderRadius: '20px', fontSize:'10px', color: 'white'}}>Proceed to Checkout</button>
