@@ -1,0 +1,9 @@
+.selection_card{
+    width: 200px;
+    height: 190px;
+    margin: 0 auto 80px auto;
+    display: flex;
+    flex-direction: column;
+    border: solid black 5px;
+    border-radius: 10px;
+}

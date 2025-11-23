@@ -92,7 +92,13 @@ function Navbar(props){
                     <li><button type="button" value="cabels" className="dropdown-item" onClick={choose_category}>cable</button></li>
                     <li><button type="button" value="switch" className="dropdown-item" onClick={choose_category}>switch</button></li>
                     <li><button type="button" value="dummy" className="dropdown-item" onClick={choose_category}>dummy</button></li>
-                    
+                    <li><button type="button" value="dummy" className="dropdown-item" onClick={choose_category}>lamp</button></li>
+                    <li><button type="button" value="dummy" className="dropdown-item" onClick={choose_category}>spot</button></li>
+                    <li><button type="button" value="dummy" className="dropdown-item" onClick={choose_category}>applique</button></li>
+                    <li><button type="button" value="dummy" className="dropdown-item" onClick={choose_category}>led wire</button></li>
+                    <li><button type="button" value="dummy" className="dropdown-item" onClick={choose_category}>khartoom</button></li>
+                    <li><button type="button" value="dummy" className="dropdown-item" onClick={choose_category}>tba2</button></li>
+                    <li><button type="button" value="dummy" className="dropdown-item" onClick={choose_category}>chandelier</button></li>
                   </ul>
                 </li>
                 <li className="nav-item">

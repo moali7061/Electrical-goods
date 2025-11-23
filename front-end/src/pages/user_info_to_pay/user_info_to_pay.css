@@ -1,18 +1,31 @@
-.Payment_page{
+.user_info_page {
+  background-image: url('../../assets/slide_2.jpg');
+  width: 100vw;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: center; 
+  align-items: center;     
 }
 
 .payment_grid{
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
   display: grid;
   grid-template-columns: 500px 500px;
   grid-template-rows: 500px;
+  background-color: white;
+  border: solid black 2px;
+  border-radius: 15px;
 }
 
-.paymen_grid_cell{
-  background-color: #555;
+.payment_grid_cell{
   width: 500px;
   height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }

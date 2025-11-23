@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/navbar/Navbar.jsx';
+import Selection_card from "../../components/selection_card/selection_card1.jsx"
 import {Carousel} from '../../components/carousel/carousel.jsx';
 import {slides} from "../../data/carouseldata.json"
 import lamp from "../../assets/lamp.png"
@@ -41,15 +42,15 @@ function Home_page() {
         </div>
 
         <div className='section_2'>
-           <a href="" style={{width:'364px', height:'348px'}}><img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}} onClick={go_to_login} src={lamp}/></a>
-           <a href="" style={{width:'364px', height:'348px'}}><img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}} onClick={go_to_login} src={spot}/></a>
-           <img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}}  src={led}/>
-           <img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}}  src={khartoom}/>
-           <img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}}  src={ceiling_spot}/>
-           <img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}}  src={wall_applique}/>
-           <img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}}  src={chandelier}/>
-           <img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}}  src={cable}/>
-           <img className='grid_cell' style={{width: '364px', height: '348px', borderRadius:'10%', border:'solid black 2px'}}  src={sanshe_sharm}/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={lamp} direction="/login"/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={spot} direction="/login"/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={led} direction="/login"/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={khartoom} direction="/login"/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={ceiling_spot} direction="/login"/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={wall_applique} direction="/login"/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={chandelier} direction="/login"/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={cable} direction="/login"/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={sanshe_sharm} direction="/login"/>
         </div>
 
             <div className='section_3_new'>
