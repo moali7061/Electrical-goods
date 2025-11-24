@@ -1,0 +1,14 @@
+.categories{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.yala{
+    display:'block';
+    margin-right:'50px' !important;
+}
+img{
+    width: 190px;
+    height: 150px;
+}

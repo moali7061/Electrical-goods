@@ -9,9 +9,10 @@ import "./list.css"
  
 function List(props){
   const location = useLocation(); 
-  console.log("props haa", props.to_be_mapped); 
+  //console.log("props haa", props.to_be_mapped); 
   const [products, setProducts] =  useState(location.state?.products || props.to_be_mapped || []);
   const [priceRange, setPriceRange] = useState([0, 20000]);
+  const filterValues = location.state?.filterValues || [];
 
   const updateProductCountFrontend = (product_id, newCount) => {
     setProducts(prev =>
@@ -21,9 +22,23 @@ function List(props){
     );
   };
 
-  const filteredProducts = products.filter(p => 
-    p.price >= priceRange[0] && p.price <= priceRange[1]
-  );
+  const filteredProducts = products.filter(product => {
+    const matchesPrice = product.price >= priceRange[0] && product.price <= priceRange[1];
+
+    const keywords = location.state?.filterKey;
+    const keys = Array.isArray(keywords) ? keywords : [keywords];
+    const cleanKeys = keys.filter(k => k && k.trim() !== '');
+
+    const matchesKeywords = cleanKeys.every(word =>
+      product.product_name.toLowerCase().includes(word.toLowerCase()) &&
+      product.product_name?.toLowerCase().includes(word.toLowerCase())
+    );
+
+    return matchesPrice && matchesKeywords;
+  });
+
+  
+console.log('Filtered Products:', filteredProducts);
 
   useEffect(() => {
     if (location.state?.products) {

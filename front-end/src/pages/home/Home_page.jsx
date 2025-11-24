@@ -41,17 +41,23 @@ function Home_page() {
           <h1 className='the_description'>BUY ALL YOUR<br/>FURNITURE WITH<br/> THE BEST PRICES<br/>EVER</h1>
         </div>
 
+        <hr/>
+
         <div className='section_2'>
-           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={lamp} direction="/login"/>
-           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={spot} direction="/login"/>
-           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={led} direction="/login"/>
-           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={khartoom} direction="/login"/>
-           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={ceiling_spot} direction="/login"/>
-           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={wall_applique} direction="/login"/>
-           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={chandelier} direction="/login"/>
-           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={cable} direction="/login"/>
-           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={sanshe_sharm} direction="/login"/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={lamp} direction={{path:"/categories", state:{category:'lamp'}}}/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={spot} direction={{path:"/categories", state:{category:'spot'}}}/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={led} direction={{path:"/categories", state:{category:'led'}}}/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={khartoom} direction={{path:"/categories", state:{category:'khartoom'}}}/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={ceiling_spot} direction={{path:"/categories", state:{category:'spot'}}}/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={wall_applique} direction={{path:"/categories", state:{category:'spot'}}}/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={chandelier} direction={{path:"/categories", state:{category:'spot'}}}/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={cable} direction={{path:"/categories", state:{category:'spot'}}}/>
+           <Selection_card style={{marginLeft:'auto', marginRight:'auto'}} image={sanshe_sharm} direction={{path:"/categories", state:{category:'spot'}}}/>
         </div>
+        <br/>
+        <br/>
+        <hr/>
+        <br/>
 
             <div className='section_3_new'>
               <div style={{display:'inline-block', width: '550px'}}>

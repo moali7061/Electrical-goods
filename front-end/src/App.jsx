@@ -10,7 +10,7 @@ import Change_password from './pages/change password/change_password';
 import Cart from './pages/cart/cart';
 import User_info_to_pay from './pages/user_info_to_pay/user-info_to_pay';
 import Login_signup_changePassword from './pages/login_signup/login_signup_changePasswpord';
-
+import Product_category from './pages/product_category/product_category.jsx';
 
 function App(props) {
 
@@ -37,7 +37,7 @@ function App(props) {
   }, []);
  
   return (
-      <Router>
+    <Router>
       <Routes>
         <Route path='/login' element= {<Login/>}  />
  
@@ -55,8 +55,10 @@ function App(props) {
 
         <Route path='/login_signup' element={<Login_signup_changePassword/>}/>
         
+        <Route path='/categories' element={<Product_category/>}/>
+
       </Routes>
-  </Router>
+    </Router>
   )
 }
 

@@ -1,27 +1,66 @@
-import selection_card from "../../components/selection_card.jsx"
+import Selection_card from "../../components/selection_card/selection_card1.jsx"
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
+import elsewedylamp from "../../assets/elsewedy_lamp_category.png" 
+import elioslamp from "../../assets/elios_lamp.png"
+import capitallight from "../../assets/CapitalLight.png"
+import osram from "../../assets/osram.png"
+import IDO from "../../assets/Ido.png"
+import Avena from "../../assets/Avena.png"
+import mostafa_mahmoud from "../../assets/mostafa_mahmoud.png"
 
-function Product_category(props){
+import './product_category.css'
+export default function Product_category(props){
 
-    const lamp = [{
 
-    },{
+    const location = useLocation();
+    const selectedCategory = location.state?.category;
 
-    },{
+    
+    const lamp = [
+        {
+            src: elsewedylamp,
+            value: ['elsewedy' ,'lamp']
+        },{
+            src: elioslamp,
+            value: ['elios' ,'lamp']
+        },{
+            src : capitallight,
+            value: 'capital light lamp'
+        },{
+            src: osram,
+            value: 'osram lamp'
+        }
+    ]
 
+    const spot = [
+        {
+            src: Avena,
+            value: ''
+        }
+    ]
+
+    const led = [{
+        src : IDO
     }]
 
-    const spot=[{
-
-    },{
-
+    const khartoom = [{
+        src : mostafa_mahmoud
     }]
+    
 
-    const category = lamp;
+    let category = [];
+    if (selectedCategory === "lamp") category = lamp;
+    if (selectedCategory === "spot") category = spot;
+    if (selectedCategory === "led")  category = led;
+    if (selectedCategory === "khartoom")  category = khartoom;
+     if (!selectedCategory) {
+        return <h2>No category selected.</h2>;
+    }
     return(
-        <div>
+        <div className="categories">
             {category.map((element, idx)=>(
-                <selection_card image={element.src} direction={element.direction}/>
+                <Selection_card key={idx} classname="yala" image={element.src} direction={{path:'/listing', state:{filterKey:element.value}}}/>
             ))}
         </div>
     );

@@ -1,0 +1,25 @@
+{
+    "lamp": [
+        {
+            "src": "front-end/src/assets/elsewedy_lamp.png",
+            "alt": ""
+        },
+        {
+            "src": "https://picsum.photos/seed/img1/400/500",
+            "alt": ""
+        },
+        {
+            "src": "https://picsum.photos/seed/img2/400/500",
+            "alt": ""
+        },
+        {
+            "src": "https://picsum.photos/seed/img3/400/500",
+            "alt": ""
+        }
+    ],
+    "spot": [
+        {
+
+        }
+    ]
+}

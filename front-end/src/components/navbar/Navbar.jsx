@@ -14,7 +14,7 @@ function Navbar(props){
 
   const handleSliderChange = (newRange) => {
     setRange(newRange); 
-    console.log("the new range is " ,newRange);     
+    //console.log("the new range is " ,newRange);     
     if (props.onFilter) {
       props.onFilter(newRange);
     } 
@@ -26,6 +26,7 @@ function Navbar(props){
 
 
   async function all_products(event){
+   
     try{
       const response = await fetch('http://localhost:3000/api/users/get_all_products',{
           method: "GET",
@@ -36,12 +37,13 @@ function Navbar(props){
       //console.log("the products here is ",products);
       if(products){
         setProducts(products);
-        navigate("/listing", { state: { products: products }, key: Date.now() }); // add key here
+        navigate("/listing", { state: { products: products }, key: Date.now() });
     }
     }catch(err){
       console.log(err);
     }
   }
+
   async function choose_category(event){
 
       const category_selected = event.target.value;
@@ -67,6 +69,7 @@ function Navbar(props){
       console.log(err)
     }
   }
+
     return(<>
     <nav className="navbar navbar-expand-lg fixed-top" style={{backgroundColor:"white", maxHeight:'55px', width: '100%'}}>
           <div className="container-fluid">
@@ -92,13 +95,13 @@ function Navbar(props){
                     <li><button type="button" value="cabels" className="dropdown-item" onClick={choose_category}>cable</button></li>
                     <li><button type="button" value="switch" className="dropdown-item" onClick={choose_category}>switch</button></li>
                     <li><button type="button" value="dummy" className="dropdown-item" onClick={choose_category}>dummy</button></li>
-                    <li><button type="button" value="dummy" className="dropdown-item" onClick={choose_category}>lamp</button></li>
-                    <li><button type="button" value="dummy" className="dropdown-item" onClick={choose_category}>spot</button></li>
-                    <li><button type="button" value="dummy" className="dropdown-item" onClick={choose_category}>applique</button></li>
-                    <li><button type="button" value="dummy" className="dropdown-item" onClick={choose_category}>led wire</button></li>
-                    <li><button type="button" value="dummy" className="dropdown-item" onClick={choose_category}>khartoom</button></li>
-                    <li><button type="button" value="dummy" className="dropdown-item" onClick={choose_category}>tba2</button></li>
-                    <li><button type="button" value="dummy" className="dropdown-item" onClick={choose_category}>chandelier</button></li>
+                    <li><button type="button" value="lamp" className="dropdown-item" onClick={choose_category}>lamp</button></li>
+                    <li><button type="button" value="spot" className="dropdown-item" onClick={choose_category}>spot</button></li>
+                    <li><button type="button" value="applique" className="dropdown-item" onClick={choose_category}>applique</button></li>
+                    <li><button type="button" value="wire" className="dropdown-item" onClick={choose_category}>led wire</button></li>
+                    <li><button type="button" value="khartoom" className="dropdown-item" onClick={choose_category}>khartoom</button></li>
+                    <li><button type="button" value="tba2" className="dropdown-item" onClick={choose_category}>tba2</button></li>
+                    <li><button type="button" value="chandeliers" className="dropdown-item" onClick={choose_category}>chandelier</button></li>
                   </ul>
                 </li>
                 <li className="nav-item">

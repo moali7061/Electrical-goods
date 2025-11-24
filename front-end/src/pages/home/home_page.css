@@ -27,12 +27,11 @@
 }
 
 
+
 .section_2{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 2fr 2fr 2fr;
-  background-color: white;
-  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .section_3_new{

@@ -1,9 +1,13 @@
 .selection_card{
     width: 200px;
-    height: 190px;
-    margin: 0 auto 80px auto;
+    height: 160px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 50px;
+    margin-bottom: 70px;
     display: flex;
     flex-direction: column;
     border: solid black 5px;
     border-radius: 10px;
 }
+
