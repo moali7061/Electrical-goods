@@ -4,6 +4,7 @@ import Navbar from "../../components/navbar/Navbar.jsx";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import Sidebar from "../../components/sidebar/sidebar.jsx";
 
 import "./list.css"
  
@@ -53,19 +54,29 @@ console.log('Filtered Products:', filteredProducts);
 
             <Navbar type="listing" onFilter={(range) => setPriceRange(range)} />
 
-            {filteredProducts.map((element, index) => (
-              <Card
-                key={index}
-                product_name={element.product_name}
-                description={element.description}
-                count={element.count}
-                price={element.price}
-                product_id={element.product_id}
-                updateCount={updateProductCountFrontend}
-              />
-            ))} 
+            <div className="list-layout">
+              
+              <Sidebar />
+
+              <div className="products-container">
+                {filteredProducts.map((element, index) => (
+                  <Card
+                    key={index}
+                    product_name={element.product_name}
+                    description={element.description}
+                    count={element.count}
+                    price={element.price}
+                    product_id={element.product_id}
+                    updateCount={updateProductCountFrontend}
+                  />
+                ))}
+              </div>
+
+            </div>
+
           </div>
         </div>
+
       );
     }else{
       return(

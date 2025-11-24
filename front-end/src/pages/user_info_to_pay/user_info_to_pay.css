@@ -1,31 +1,93 @@
 .user_info_page {
   background-image: url('../../assets/slide_2.jpg');
-  width: 100vw;
+  background-size: cover;
+  padding: 40px;
   min-height: 100vh;
-  background-repeat: no-repeat;
-  background-position: center;
-  display: flex;
-  justify-content: center; 
-  align-items: center;     
+  width: 100vw;
 }
 
-.payment_grid{
-  width: 60%;
-  margin-right: auto;
-  margin-left: auto;
+.payment_grid {
   display: grid;
-  grid-template-columns: 500px 500px;
-  grid-template-rows: 500px;
+  grid-template-columns: 1fr 1fr;
   background-color: white;
-  border: solid black 2px;
-  border-radius: 15px;
+  border-radius: 12px;
+  padding: 20px;
+  gap: 20px;
 }
 
-.payment_grid_cell{
-  width: 500px;
-  height: 500px;
+.payment_grid_cell {
+  padding: 20px;
+}
+
+.left_section {
+  border-right: 1px solid #ccc;
+}
+
+.inputs_group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.inputs_group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 8px;
+}
+
+/* ORDER BOX */
+.order_box {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 25px;
+  border: 1px solid #ddd;
+}
+
+.total_amount {
+  font-size: 20px;
+  color: #e91e63;
+}
+
+/* PAYMENT METHODS */
+.payment_methods label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* CONFIRM BUTTON */
+.confirm_btn {
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+  background: #000;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.confirm_btn:hover {
+  background: #333;
+}
+
+.payment_details_form {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  align-content: center;
-  justify-content: center;
+  gap: 10px;
+}
+
+.payment_details_form input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #999;
+}
+
+.inputs_group input {
+  flex: 1;
 }

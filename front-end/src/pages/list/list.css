@@ -16,3 +16,18 @@
   display: flex;
   width: 1000px; 
 }
+
+.list-layout {
+  display: flex;
+}
+
+.products-container {
+  margin-left: 200px; 
+  padding: 20px;
+  width: calc(100% - 200px);
+  
+  display: flex;
+  flex-wrap: wrap;     
+  gap: 5px;           
+  align-items: flex-start;
+}
