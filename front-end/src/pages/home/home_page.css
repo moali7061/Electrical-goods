@@ -8,7 +8,7 @@
   width: 100%;
   height: 100vh;
 
-  background-image: url('../../assets/slide_2.jpg');
+  background-image: url('../../assets/slide_2.png');
   background-repeat: no-repeat;
   background-position: center; /* center remains */
   background-size: cover;      /* scale image to fill */
@@ -21,7 +21,7 @@
   height: 93vh;
   font-size: 100px;
   
-  color: black;
+  color: white;
   opacity:0.6;
   filter:alpha(opacity=30);
 }
@@ -60,4 +60,3 @@
   position: relative; 
   top: 0px; 
 }
-

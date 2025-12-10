@@ -1,8 +1,13 @@
 import { useState } from "react";
 import "./User_info_to_pay.css";
+import { useNavigate } from "react-router-dom";
 
 function User_info_to_pay() {
   const [paymentMethod, setPaymentMethod] = useState("cod"); // default: Cash on Delivery
+  const navigate = useNavigate();
+  const go_to_success = ()=>{
+    navigate('/success');
+  }
 
   return (
     <div className="user_info_page">
@@ -96,7 +101,7 @@ function User_info_to_pay() {
             </div>
           )}
 
-          <button className="confirm_btn">
+          <button onClick={go_to_success} className="confirm_btn">
             Confirm Order
           </button>
 

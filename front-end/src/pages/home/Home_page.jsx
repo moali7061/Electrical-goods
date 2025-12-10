@@ -33,7 +33,7 @@ function Home_page() {
     navigate('/change_password');
   }
   return (
-    <body>
+    <>
     <header>
       <Navbar type='home'/>
     </header>
@@ -118,7 +118,7 @@ function Home_page() {
         
         
 
-    </body>
+    </>
   );
 }
 

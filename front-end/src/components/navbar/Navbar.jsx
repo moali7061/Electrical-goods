@@ -3,6 +3,7 @@ import List from "../../pages/list/list.jsx";
 import { useNavigate } from "react-router-dom";
 import RangeSlider from '../slider/slider.jsx';
 import PropTypes from "prop-types";
+import habib_logo from "../../assets/transparent.png";
 
 function Navbar(props){
 
@@ -73,7 +74,7 @@ function Navbar(props){
     return(<>
     <nav className="navbar navbar-expand-lg fixed-top" style={{backgroundColor:"white", maxHeight:'55px', width: '100%'}}>
           <div className="container-fluid">
-            <a className="navbar-brand" >Habib lightning</a>
+            <a><img src={habib_logo} style={{height:'60px'}}/></a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>

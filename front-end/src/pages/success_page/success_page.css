@@ -1,0 +1,18 @@
+.done_Successfully {
+  background-image: url('../../assets/slide_2.png');
+  background-size: cover;
+  padding: 40px;
+  min-height: 100vh;
+  width: 100vw;
+}
+.success{
+    background-color: white;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

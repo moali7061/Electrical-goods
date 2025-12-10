@@ -11,6 +11,7 @@ import Cart from './pages/cart/cart';
 import User_info_to_pay from './pages/user_info_to_pay/user-info_to_pay';
 import Login_signup_changePassword from './pages/login_signup/login_signup_changePasswpord';
 import Product_category from './pages/product_category/product_category.jsx';
+import Success_page from './pages/success_page/success_page.jsx';
 
 function App(props) {
 
@@ -56,6 +57,8 @@ function App(props) {
         <Route path='/login_signup' element={<Login_signup_changePassword/>}/>
         
         <Route path='/categories' element={<Product_category/>}/>
+
+        <Route path='/success' element={<Success_page/>}/>
 
       </Routes>
     </Router>

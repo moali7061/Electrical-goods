@@ -14,7 +14,10 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express-session": "^1.18.2",
-    "pg": "^8.15.6",
-    "nodemailer": "^6.9.8"
+    "nodemailer": "^6.9.8",
+    "pg": "^8.15.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
   }
 }
