@@ -1,54 +1,267 @@
-.cart_body {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  max-width: 1521px;
-  min-height: 100vh; 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@300;400;500&display=swap');
 
-  background-color: bisque;
+* {
+  box-sizing: border-box;
 }
 
-.flexcell {
-  width: 50%;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  margin-right: auto;
-  margin-left: auto;
-  align-content: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.flex_grid {
-  width: 80%;
+.cart-wrap {
+  font-family: 'DM Sans', sans-serif;
+  max-width: 900px;
+  min-height: 100vh;
   margin: 0 auto;
-  background-color: white;
-  border: 1px solid black;
-  padding: 10px;
-  display: grid;
-  row-gap: 8px;
+  padding: 3rem 2rem 4rem;
+  color: #1a1a1a;
+  background-color: #fdfcfb;
 }
 
-/* Header */
-.table_header {
-  display: grid;
-  grid-template-columns: 100px 1fr 1fr 120px 80px 120px;
-  padding: 10px;
-  background-color: #f2f2f2;
-  font-weight: bold;
-  border-bottom: 2px solid #aaa;
+/* ── Header ── */
+.cart-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e8e4de;
+  padding-bottom: 1.25rem;
 }
 
-/* Each product row — THIS WAS THE PROBLEM */
-.one_product {
-  display: grid;
-  grid-template-columns: 100px 1fr 1fr 120px 80px 120px;
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
+.cart-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.5px;
+  color: #1a1a1a;
 }
 
-.one_product > div {
+.cart-count {
+  font-size: 12px;
+  font-weight: 400;
+  color: #888;
+  background: #f0ede8;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid #e0dbd4;
+}
+
+/* ── Table ── */
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-table thead tr {
+  border-bottom: 1px solid #e8e4de;
+}
+
+.cart-table th {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #999;
+  padding: 0 0 12px 0;
+  text-align: left;
+}
+
+.cart-table th:not(:first-child) {
+  text-align: right;
+}
+
+.cart-table tbody tr {
+  border-bottom: 1px solid #f0ede8;
+  transition: background 0.15s ease;
+}
+
+.cart-table tbody tr:hover {
+  background-color: #faf8f5;
+}
+
+.cart-table td {
+  padding: 16px 0;
+  font-size: 14px;
+  vertical-align: middle;
+  text-align: right;
+}
+
+.cart-table td:first-child {
+  text-align: left;
+}
+
+/* ── Product cell ── */
+.product-name {
+  font-weight: 500;
+  font-size: 14px;
+  color: #1a1a1a;
+  margin: 0 0 4px;
   display: flex;
   align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.product-id {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #aaa;
+  background: #f0ede8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #e0dbd4;
+  font-weight: 400;
+}
+
+.product-desc {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+  max-width: 260px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Price / qty / total ── */
+.price-text {
+  font-weight: 400;
+  font-size: 14px;
+  color: #555;
+}
+
+.qty-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #f0ede8;
+  border: 1px solid #e0dbd4;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  float: right;
+}
+
+.total-text {
+  font-weight: 500;
+  font-size: 14px;
+  color: #185FA5;
+}
+
+/* ── Footer ── */
+.cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid #e8e4de;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.grand-total {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.grand-total-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #999;
+}
+
+.grand-total-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: #1a1a1a;
+}
+
+/* ── Buttons ── */
+.btn-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-back {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #d0ccc6;
+  background: transparent;
+  color: #777;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-back:hover {
+  background: #f0ede8;
+  color: #333;
+}
+
+.btn-checkout {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  background: #185FA5;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.15s;
+}
+
+.btn-checkout:hover {
+  opacity: 0.88;
+}
+
+/* ── Empty / loading state ── */
+.empty-state {
+  text-align: center;
+  padding: 4rem 0;
+  color: #aaa;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .cart-wrap {
+    padding: 2rem 1rem;
+  }
+
+  .cart-table th:nth-child(2),
+  .cart-table td:nth-child(2) {
+    display: none;
+  }
+
+  .cart-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .btn-checkout {
+    flex: 1;
+    justify-content: center;
+  }
 }
