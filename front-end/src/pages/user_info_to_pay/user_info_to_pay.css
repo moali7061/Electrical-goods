@@ -89,5 +89,22 @@
 }
 
 .inputs_group input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+.input_error {
+  border: 1px solid #e53935;
+}
+
+.error_text {
+  min-height: 14px;
+  display: block;
+  visibility: hidden;
+}
+
+
+.inputs_group > div {
   flex: 1;
 }
