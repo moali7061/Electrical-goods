@@ -1,104 +1,105 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
-
-import "./card.css"
+import "./card.css";
 
 function Card(props) {
-    const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
+  const [availableCount, setAvailableCount] = useState(props.count);
 
-    const [availableCount, setAvailableCount] = useState(props.count);
+  const increment = () => {
+    if (count >= availableCount) return;
+    setCount((c) => c + 1);
+  };
 
-    const adding = async () => {
-        console.log("added");
-        console.log(props);
+  const decrement = () => {
+    if (count <= 0) return;
+    setCount((c) => c - 1);
+  };
 
-        const product_id = props.product_id;
-        const price = props.price
-         try {
-            console.log(product_id);
-             const response = await fetch("http://localhost:3000/api/users/add_order", {
-                 method: "POST",
-                 credentials: "include",
-                 headers: {
-                     "Content-Type": "application/json",
-                 },
-                 body: JSON.stringify({
-                     product_id: product_id,
-                     count: count,
-                     price_one: price
-                 }),
-             });
+  const adding = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/users/add_order", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          product_id: props.product_id,
+          count: count,
+          price_one: props.price,
+        }),
+      });
 
-             const data = await response.json();
-             alert(data.message.message);
-             props.updateCount(product_id, data.message.count);  
-             setAvailableCount(data.message.count); 
-             setCount(0);             
+      const data = await response.json();
+      alert(data.message.message);
+      props.updateCount(props.product_id, data.message.count);
+      setAvailableCount(data.message.count);
+      setCount(0);
+    } catch (err) {
+      console.error(err);
+      alert("Error adding to cart");
+    }
+  };
 
+  const isSoldOut = availableCount <= 0;
+  const isLowStock = availableCount > 0 && availableCount <= 10;
 
+  return (
+    <div className="product-card">
+      <div className="product-card__img-wrap">
+        <img
+          src={`/${props.product_name}.png`}
+          className="product-card__img"
+          alt={props.product_name}
+          onError={(e) => { e.target.style.display = "none"; }}
+        />
+      </div>
 
-         } catch (err) {
-             console.error(err);
-             alert("Error adding to cart");
-         }
-    };
+      <div className="product-card__body">
+        <h3 className="product-card__name">{props.product_name}</h3>
+        <p className="product-card__desc">{props.description}</p>
 
-    const increment = () => {
-        if (count >= availableCount) return;
-        setCount(count + 1);
-    };
-
-
-    const decrement = () => {
-        if (count < 1) {
-            setCount(0);
-        } else {
-            setCount(count - 1);
-        }
-    };
-
-    return (
-        <div className="card">
-            <img 
-                src={`/${props.product_name}.png`} 
-                className="card_image" 
-                alt={props.product_name} 
-            />
-            <h3>{props.product_name}</h3>
-            <p>{props.description}</p>
-            <p style={{ color: availableCount <= 0 ||  availableCount<= 10? 'red' : 'black', fontWeight: 'bold' }}>
-                {availableCount===0 || availableCount<0? 'not available':`only ${availableCount} available`}
-            </p>
-            <p>price {props.price} L.E</p>
-            <div className="button_and_counter">
-                <div className="in_button_and_counter">
-                    <button onClick={increment} className="idbutton">+</button>
-                    <p className="count">{count}</p>
-                    <button onClick={decrement} className="idbutton">-</button>
-                </div>
-                {availableCount <= 0 ? (<button className="add_to_cart" disabled>sold out</button>) : 
-                    (<button className="add_to_cart" onClick={adding} disabled={count <= 0}>add to cart</button>)}
-            </div>    
+        <div className="product-card__meta">
+          <span className="product-card__price">EGP {props.price.toLocaleString()}</span>
+          <span className={`product-card__stock ${isSoldOut ? "sold-out" : isLowStock ? "low-stock" : "in-stock"}`}>
+            {isSoldOut ? "Sold out" : isLowStock ? `Only ${availableCount} left` : `${availableCount} available`}
+          </span>
         </div>
-    );
+
+        <div className="product-card__footer">
+          <div className="qty-ctrl">
+            <button
+              className="qty-btn"
+              onClick={decrement}
+              disabled={count <= 0}
+              aria-label="Decrease quantity"
+            >−</button>
+            <span className="qty-num">{count}</span>
+            <button
+              className="qty-btn"
+              onClick={increment}
+              disabled={isSoldOut || count >= availableCount}
+              aria-label="Increase quantity"
+            >+</button>
+          </div>
+
+          <button
+            className="add-btn"
+            onClick={adding}
+            disabled={isSoldOut || count <= 0}
+          >
+            {isSoldOut ? "Sold out" : "Add to cart"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
- 
-Card.propTypes = {
-    product_name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    count: PropTypes.number.isRequired,
-    price: PropTypes.number.isRequired,
-    email: PropTypes.string.isRequired,
-    product_id: PropTypes.number.isRequired,
-};
 
 Card.defaultProps = {
-    product_name: "missing the name",
-    description: "missing the description",
-    count: 0,
-    price: 0,
-    email: "",
-    product_id: 0,
+  product_name: "Unknown product",
+  description: "",
+  count: 0,
+  price: 0,
+  product_id: 0,
 };
 
 export default Card;

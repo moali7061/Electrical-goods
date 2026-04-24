@@ -1,37 +1,46 @@
-.login_signup{
+.login_signup {
   width: 100vw;
   height: 100vh;
-  background-repeat: no-repeat;
   background-image: url('../../assets/new_design.jpg');
-  background-size: cover;       
-  background-position: center;   
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.login_signup_card{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.login_signup_card {
   display: flex;
   flex-direction: column;
   width: 20%;
   min-width: 200px;
-  border-radius: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  background: rgba(58, 52, 52, 0.85);
-  padding: 20px;
+  border-radius: 16px;
+  background: rgba(30, 27, 27, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 32px 24px;
   align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.login_signup_button{
-  width: 100px;
-  display: flex;
-  flex-direction: row;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 20px;
-  border: 'solid 2px black';
-  border-radius: 10px;
+.login_signup_button {
+  width: 140px;
+  padding: 10px 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.login_signup_button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
 }

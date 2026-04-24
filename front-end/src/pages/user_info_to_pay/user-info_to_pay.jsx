@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "./User_info_to_pay.css";
 import { useNavigate } from "react-router-dom";
+import "./User_info_to_pay.css";
 
 function User_info_to_pay() {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ function User_info_to_pay() {
     cardName: "",
     expiry: "",
     cvv: "",
-    paypalEmail: ""
+    paypalEmail: "",
   });
 
   const handleChange = (e) => {
@@ -31,263 +31,231 @@ function User_info_to_pay() {
     formData.address &&
     formData.building &&
     formData.floor &&
-    (
-      paymentMethod === "cod" ||
+    (paymentMethod === "cod" ||
       (paymentMethod === "card" &&
         formData.cardNumber &&
         formData.cardName &&
         formData.expiry &&
         formData.cvv) ||
-      (paymentMethod === "paypal" && formData.paypalEmail)
-    );
+      (paymentMethod === "paypal" && formData.paypalEmail));
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
-
     if (!isFormValid) return;
-
     navigate("/success");
   };
 
-  const errorClass = (value) =>
-    !value && submitted ? "input_error" : "";
+  const fieldClass = (value) =>
+    `pay-input${submitted && !value ? " pay-input--error" : ""}`;
 
   return (
-    <form className="user_info_page" onSubmit={handleSubmit}>
-      <div className="payment_grid">
+    <div className="checkout-page">
+      <form className="checkout-grid" onSubmit={handleSubmit}>
 
-        {/* LEFT SIDE — USER INFORMATION */}
-        <div className="payment_grid_cell left_section">
-          <h2>User Information</h2>
+        {/* ── LEFT — delivery details ── */}
+        <div className="checkout-left">
+          <p className="sec-label">Step 1 of 2</p>
+          <h2 className="sec-title">Delivery details</h2>
 
-          <div className="inputs_group">
-            <div>
+          <div className="field-row">
+            <div className="field-wrap">
+              <label className="field-label">Full name</label>
               <input
                 name="fullName"
-                placeholder="Full Name"
+                className={fieldClass(formData.fullName)}
+                placeholder="Ahmed Ali"
                 value={formData.fullName}
                 onChange={handleChange}
-                className={errorClass(formData.fullName)}
               />
               {submitted && !formData.fullName && (
-                <span
-                  className="error_text"
-                  style={{ visibility: submitted && !formData.fullName ? "visible" : "hidden" }}
-                >
-                  Full name is required
-                </span>
-
+                <span className="field-error">Full name is required</span>
               )}
             </div>
 
-            <div>
+            <div className="field-wrap">
+              <label className="field-label">Phone number</label>
               <input
                 name="phone"
                 type="tel"
-                placeholder="Phone Number"
+                className={fieldClass(formData.phone)}
+                placeholder="01xxxxxxxxx"
                 value={formData.phone}
                 onChange={handleChange}
-                className={errorClass(formData.phone)}
               />
               {submitted && !formData.phone && (
-                <span
-                  className="error_text"
-                  style={{ visibility: submitted && !formData.phone ? "visible" : "hidden" }}
-                >
-                  phone is required
-                </span>
+                <span className="field-error">Phone number is required</span>
               )}
             </div>
           </div>
 
-          <div className="inputs_group">
-            <div>
-              <input
-                name="address"
-                placeholder="Address"
-                value={formData.address}
-                onChange={handleChange}
-                className={errorClass(formData.address)}
-              />
-              {submitted && !formData.address && (
-                <span
-                  className="error_text"
-                  style={{ visibility: submitted && !formData.address ? "visible" : "hidden" }}
-                >
-                  address is required
-                </span>
-              )}
-            </div>
+          <div className="field-wrap field-full">
+            <label className="field-label">Street address</label>
+            <input
+              name="address"
+              className={fieldClass(formData.address)}
+              placeholder="123 Tahrir Street, Cairo"
+              value={formData.address}
+              onChange={handleChange}
+            />
+            {submitted && !formData.address && (
+              <span className="field-error">Address is required</span>
+            )}
           </div>
 
-          <div className="inputs_group">
-            <div>
+          <div className="field-row">
+            <div className="field-wrap">
+              <label className="field-label">Building / house no.</label>
               <input
                 name="building"
-                placeholder="Building / House Number"
+                className={fieldClass(formData.building)}
+                placeholder="Building 4"
                 value={formData.building}
                 onChange={handleChange}
-                className={errorClass(formData.building)}
               />
               {submitted && !formData.building && (
-                <span
-                  className="error_text"
-                  style={{ visibility: submitted && !formData.phone ? "visible" : "hidden" }}
-                >
-                  Building / House Number is required
-                </span>
+                <span className="field-error">Building number is required</span>
               )}
             </div>
 
-            <div>
+            <div className="field-wrap">
+              <label className="field-label">Floor</label>
               <input
                 name="floor"
-                placeholder="Floor"
+                className={fieldClass(formData.floor)}
+                placeholder="3rd floor"
                 value={formData.floor}
                 onChange={handleChange}
-                className={errorClass(formData.floor)}
               />
               {submitted && !formData.floor && (
-                <span
-                  className="error_text"
-                  style={{ visibility: submitted && !formData.phone ? "visible" : "hidden" }}
-                >
-                  floor is required
-                </span>
+                <span className="field-error">Floor is required</span>
               )}
             </div>
           </div>
         </div>
 
-        {/* RIGHT SIDE — ORDER + PAYMENT */}
-        <div className="payment_grid_cell right_section">
-          <h2>Order Summary</h2>
+        {/* ── RIGHT — order summary + payment ── */}
+        <div className="checkout-right">
+          <p className="sec-label">Your order</p>
+          <h2 className="sec-title">Order summary</h2>
 
-          <div className="order_box">
-            <p><strong>Total Items:</strong> 3</p>
-            <p><strong>Subtotal:</strong> $350</p>
-            <p><strong>Delivery Fee:</strong> $10</p>
-            <p>
-              <strong>Total:</strong>{" "}
-              <span className="total_amount">$360</span>
-            </p>
+          <div className="order-box">
+            <div className="order-row">
+              <span>Items</span>
+              <span>3</span>
+            </div>
+            <div className="order-row">
+              <span>Subtotal</span>
+              <span>EGP 350</span>
+            </div>
+            <div className="order-row">
+              <span>Delivery</span>
+              <span>EGP 50</span>
+            </div>
+            <div className="order-row order-row--total">
+              <span>Total</span>
+              <span className="order-total-val">EGP 400</span>
+            </div>
           </div>
 
-          <h2>Payment Method</h2>
+          <hr className="divider" />
 
-          <div className="payment_methods">
-            <label>
-              <input
-                type="radio"
-                checked={paymentMethod === "cod"}
-                onChange={() => setPaymentMethod("cod")}
-              />
-              Cash on Delivery
-            </label>
+          <p className="sec-label">Payment method</p>
 
-            <label>
-              <input
-                type="radio"
-                checked={paymentMethod === "card"}
-                onChange={() => setPaymentMethod("card")}
-              />
-              Credit Card
-            </label>
-
-            <label>
-              <input
-                type="radio"
-                checked={paymentMethod === "paypal"}
-                onChange={() => setPaymentMethod("paypal")}
-              />
-              PayPal
-            </label>
+          <div className="pm-options">
+            {[
+              { id: "cod", label: "Cash on delivery" },
+              { id: "card", label: "Credit card" },
+              { id: "paypal", label: "PayPal" },
+            ].map((opt) => (
+              <div
+                key={opt.id}
+                className={`pm-opt${paymentMethod === opt.id ? " pm-opt--active" : ""}`}
+                onClick={() => setPaymentMethod(opt.id)}
+              >
+                <div className="pm-dot" />
+                <span>{opt.label}</span>
+              </div>
+            ))}
           </div>
 
-          {/* CARD PAYMENT */}
           {paymentMethod === "card" && (
-            <div className="payment_details_form">
-              <h3>Credit Card Details</h3>
-
+            <div className="payment-extra">
               <input
                 name="cardNumber"
-                placeholder="Card Number"
+                className={fieldClass(formData.cardNumber)}
+                placeholder="Card number"
                 maxLength="16"
                 value={formData.cardNumber}
                 onChange={handleChange}
-                className={errorClass(formData.cardNumber)}
               />
               {submitted && !formData.cardNumber && (
-                <span className="error_text">Card number is required</span>
+                <span className="field-error">Card number is required</span>
               )}
 
               <input
                 name="cardName"
-                placeholder="Cardholder Name"
+                className={fieldClass(formData.cardName)}
+                placeholder="Cardholder name"
                 value={formData.cardName}
                 onChange={handleChange}
-                className={errorClass(formData.cardName)}
               />
               {submitted && !formData.cardName && (
-                <span className="error_text">Cardholder name is required</span>
+                <span className="field-error">Cardholder name is required</span>
               )}
 
-              <div className="inputs_group">
-                <div>
+              <div className="field-row">
+                <div className="field-wrap">
                   <input
                     name="expiry"
-                    placeholder="Expiry MM/YY"
+                    className={fieldClass(formData.expiry)}
+                    placeholder="MM/YY"
                     value={formData.expiry}
                     onChange={handleChange}
-                    className={errorClass(formData.expiry)}
                   />
                   {submitted && !formData.expiry && (
-                    <span className="error_text">Expiry date is required</span>
+                    <span className="field-error">Required</span>
                   )}
                 </div>
-
-                <div>
+                <div className="field-wrap">
                   <input
                     name="cvv"
+                    className={fieldClass(formData.cvv)}
                     placeholder="CVV"
                     maxLength="3"
                     value={formData.cvv}
                     onChange={handleChange}
-                    className={errorClass(formData.cvv)}
                   />
                   {submitted && !formData.cvv && (
-                    <span className="error_text">CVV is required</span>
+                    <span className="field-error">Required</span>
                   )}
                 </div>
               </div>
             </div>
           )}
 
-          {/* PAYPAL */}
           {paymentMethod === "paypal" && (
-            <div className="payment_details_form">
-              <h3>PayPal Email</h3>
+            <div className="payment-extra">
               <input
                 name="paypalEmail"
                 type="email"
-                placeholder="PayPal Email"
+                className={fieldClass(formData.paypalEmail)}
+                placeholder="PayPal email"
                 value={formData.paypalEmail}
                 onChange={handleChange}
-                className={errorClass(formData.paypalEmail)}
               />
               {submitted && !formData.paypalEmail && (
-                <span className="error_text">PayPal email is required</span>
+                <span className="field-error">PayPal email is required</span>
               )}
             </div>
           )}
 
-          <button type="submit" className="confirm_btn">
-            Confirm Order
+          <button type="submit" className="confirm-btn">
+            Confirm order →
           </button>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
 

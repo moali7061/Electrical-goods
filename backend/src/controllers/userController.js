@@ -112,7 +112,6 @@ export const login = async(req, res)=>{
 
 export const get_user_id = async(req, res)=>{
     console.log("requesttt session id = "+req.session.userId);
-    res.send({user_id: res.session.userId})
-
+    res.send({user_id: req.session.userId})
     
 }
