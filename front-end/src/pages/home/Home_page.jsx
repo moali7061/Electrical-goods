@@ -15,15 +15,15 @@ import sanshe_sharm from '../../assets/sanshe_sharm.png';
 import "./home_page.css";
 
 const categories = [
-  { image: lamp,         state: { category: 'lamp' } },
-  { image: spot,         state: { category: 'spot' } },
-  { image: led,          state: { category: 'led' } },
-  { image: khartoom,     state: { category: 'khartoom' } },
-  { image: ceiling_spot, state: { category: 'spot' } },
-  { image: wall_applique,state: { category: 'spot' } },
-  { image: chandelier,   state: { category: 'spot' } },
-  { image: cable,        state: { category: 'spot' } },
-  { image: sanshe_sharm, state: { category: 'spot' } },
+  { image: lamp,          state: { category: 'lamp' } },
+  { image: spot,          state: { category: 'spot' } },
+  { image: led,           state: { category: 'led' } },
+  { image: khartoom,      state: { category: 'khartoom' } },
+  { image: ceiling_spot,  state: { category: 'spot' } },
+  { image: wall_applique, state: { category: 'spot' } },
+  { image: chandelier,    state: { category: 'spot' } },
+  { image: cable,         state: { category: 'spot' } },
+  { image: sanshe_sharm,  state: { category: 'spot' } },
 ];
 
 function Home_page() {
@@ -52,7 +52,7 @@ function Home_page() {
           <Selection_card
             key={idx}
             image={cat.image}
-            direction={{ path: "/listing", state: cat.state }}
+            direction={{ path: "/categories", state: cat.state }}
           />
         ))}
       </div>
@@ -92,9 +92,9 @@ function Home_page() {
 
         <div className="footer_element">
           <h5 className='footer_icon'>Branches</h5>
-          📍 <a href="https://www.google.com/maps/place/Habib+Lighting/@30.0141921,31.282819,17z">Ataba branch</a><br />
-          📍 <a href="https://www.google.com/maps/place/Habib+Lighting/@30.0408301,31.1978787,17z">Mohandessin branch</a><br />
-          📍 <a href="https://www.google.com/maps/place/Habib+Lighting/@30.0408301,31.1978787,17z">Mokattam branch</a>
+          📍 <a href="https://www.google.com/maps/place/Habib+Lighting/@30.0141921,31.282819,17z/data=!3m1!4b1!4m6!3m5!1s0x1458390003e29265:0xcb1cdcf7c806b2a6!8m2!3d30.0141921!4d31.2853939!16s%2Fg%2F11x6cjwd5b?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D">Ataba branch</a><br />
+          📍 <a href="https://www.google.com/maps/place/Habib+Lighting/@30.0408301,31.1978787,17z/data=!3m1!4b1!4m6!3m5!1s0x145846cc908a2bfb:0x243aca3a2af064cf!8m2!3d30.0408301!4d31.2004536!16s%2Fg%2F11c5_1rpd7?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D">Mohandessin branch</a><br />
+          📍 <a href="https://www.google.com/maps/place/Habib+Lighting/@30.0408301,31.1978787,17z/data=!3m1!4b1!4m6!3m5!1s0x145846cc908a2bfb:0x243aca3a2af064cf!8m2!3d30.0408301!4d31.2004536!16s%2Fg%2F11c5_1rpd7?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D">Mokattam branch</a>
         </div>
 
         <div className="footer_element">
