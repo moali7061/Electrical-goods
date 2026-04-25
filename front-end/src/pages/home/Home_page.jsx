@@ -38,7 +38,7 @@ function Home_page() {
       <Navbar type='home'/>
     </header>
         <div className='section_1'>
-          <h1 className='the_description'>BUY ALL YOUR<br/>FURNITURE WITH<br/> THE BEST PRICES<br/>EVER</h1>
+          <h1 className='the_description'>BUY ALL YOUR<br/>Electrical goods<br/> WITH THE <br/>BEST PRICES<br/>EVER</h1>
         </div>
 
         <hr/>
